@@ -6,6 +6,7 @@ module.exports = defineConfig({
   chromeWebSecurity: false,
   experimentalStudio: true,
   waitForAnimations: false,
+  projectId:"xvytmy",
   animationDistanceThreshold: 50,
   reporter: 'mochawesome',
   reporter: 'cypress-mochawesome-reporter',
