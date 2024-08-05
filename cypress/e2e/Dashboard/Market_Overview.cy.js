@@ -248,29 +248,47 @@ if (loadTime > 2) { // Adjust threshold as needed (2 seconds in this example)
   cy.go('back')
   cy.scrollTo('top')
 
-  // Click on Top gainers view all
+  // Click on Top gainers view all(7 day%)
 
 
- // cy.wait(2000)
-  //cy.go('back')
+//  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[1]/app-dashboard-charts/div/div[2]/div[1]/a').click()
+cy.get('.col-xxl-4.pos_relative > app-dashboard-charts > .card > .card-body > .flexspbn > a').click()
+  cy.wait(3000)
+  cy.xpath('/html/body/app-root/app-layout/app-top-gainers-losers/div/div/div/div/div/div[2]/div/kendo-grid/div/div/div/table/thead/tr/th[4]/span/span/kendo-dropdownlist/button/kendo-icon-wrapper/kendo-icon').click()
+  // select (30 days %)
+  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[2]/span[1]').click()
+  cy.wait(3000)
+  cy.go('back')
+
 
   //click on  Top Losers view all
-
-
+ // cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[2]/div/app-dashboard-charts/div/div[2]/div[1]/a').click()
+ cy.get(':nth-child(2) > .pos_relative > app-dashboard-charts > .card > .card-body > .flexspbn > a').click() 
+ cy.wait(3000)
+  cy.go('back')
 
   //click on 52 Week high view all
-
-
+ //cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[4]/div/app-dashboard-charts/div/div[2]/div[1]/a').click({force:true})
+ cy.get(':nth-child(4) > :nth-child(4) > .pos_relative > app-dashboard-charts > .card > .card-body > .flexspbn > a').click() 
+ cy.wait(3000)
+  cy.go('back')
 
 
   // click on 52 week low
+  //cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[2]/div/app-dashboard-charts/div/div[2]/div[1]/a').click({force:true})
+  cy.get(':nth-child(5) > .pos_relative > app-dashboard-charts > .card > .card-body > .flexspbn > a').click()
+  cy.wait(3000)
+  cy.go('back')
+
   
 
 
 
 
-// click on 
 
+// click on 
+ //cy.wait(2000)
+  //cy.go('back')
 
 
 

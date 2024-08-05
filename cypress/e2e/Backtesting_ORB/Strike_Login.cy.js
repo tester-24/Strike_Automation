@@ -5,11 +5,12 @@ it('Login', () => {
     cy.viewport(1750, 800);
     cy.clearAllCookies();
     cy.visit('https://strike.jainam.in/#/');
-    cy.reload();
+   // cy.reload();
+
     cy.get('.nav-link').click()
     cy.screenshot()
 
-    cy.wait(1000);
+    cy.wait(3000);
     cy.xpath("//input[@placeholder='Enter User ID']").type('J33');
     cy.xpath("//input[@id='LoginPassword']").type('Alpha@123');
     cy.xpath("//p[normalize-space()='Login Now']").click();

@@ -338,7 +338,7 @@ it('Option Backtesting', () => {
     cy.get('.secondary').click();
 
     cy.get('.loader_numb').should("be.visible");
-    cy.wait(15000);
+    cy.wait(30000);
 
 
     if(cy.xpath('/html/body/app-root/app-layout/app-option-structure/div[2]/div/div/div/div/div[2]/div/div/div/div/app-back-test-result/div[1]/div[2]/div/div[2]/div/kendo-grid/div/kendo-grid-list/div/div[1]/table/tbody/tr').should('have.length.above',0))
