@@ -10,10 +10,10 @@ it('Login', () => {
     cy.get('.nav-link').click()
 
     //Login Flow
-    cy.wait(1000);
+    cy.wait(2000);
     cy.xpath("//kendo-textbox[@placeholder='Enter Email id or Mobile number']").type('9825479404')
     cy.get('.btn_bg_bw').click();
-    cy.wait(1000);
+    cy.wait(2000);
     cy.xpath("//kendo-textbox[@placeholder='Enter Password']").type('Loop@345');
     cy.get('.btn_bg_bw').click();
     cy.log('Login successful');

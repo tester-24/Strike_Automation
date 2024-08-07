@@ -16,7 +16,7 @@ describe('MarketOverview', () => {
         console.log('Cypress detected uncaught exception: ', err);
         return false;
       });
-      cy.wait(1000)
+      cy.wait(3000)
       cy.get('#navBar > :nth-child(2) > #Dashboard').should('be.visible')
       const startTime = Date.now();
       cy.get('#navBar > :nth-child(2) > #Dashboard').click()
