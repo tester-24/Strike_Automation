@@ -6,7 +6,7 @@ it('Login', () => {
     cy.clearAllCookies();
     cy.visit('https://strike.jainam.in/#/');
     cy.reload();
-    cy.wait(4000);
+    cy.wait(5000);
     cy.get('.nav-link').click()
 
     //Login Flow

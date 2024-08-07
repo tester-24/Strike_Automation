@@ -40,9 +40,7 @@ describe('MarketOverview', () => {
 
 
       //Click on Nifty 50 dropdown
-      cy.wait(500)
-
-      // cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div[1]/div/div[1]/div/h3[1]/kendo-dropdownlist/button').should('be.visible')
+      cy.wait(5000)
       cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div[1]/div/div[1]/div/h3[1]/kendo-dropdownlist/button').click({ force: true })
 
       //Select Nifty Mid Cap 100
@@ -208,7 +206,7 @@ describe('MarketOverview', () => {
         console.log('Cypress detected uncaught exception: ', err);
         return false;
       });
-      cy.wait(2000)
+      cy.wait(3000)
       cy.get('#navBar > :nth-child(2) > #Dashboard').should('be.visible')
       const startTime = Date.now();
       cy.get('#navBar > :nth-child(2) > #Dashboard').click()
@@ -253,6 +251,7 @@ describe('MarketOverview', () => {
       cy.xpath('/html/body/app-root/app-layout/app-top-gainers-losers/div/div/div/div/div/div[2]/div/kendo-grid/div/div/div/table/thead/tr/th[5]/span/span/kendo-dropdownlist/button').click({timeout:500})
 
       //select (7 days %)
+      cy.wait(1000)
       cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[1]').click({timeout:500})
       if (cy.get("table[class='k-grid-table k-table k-table-md']>tbody>tr").should('have.length.greaterThan', 0)) {
         cy.log('Records available')
@@ -322,7 +321,7 @@ describe('MarketOverview', () => {
         console.log('Cypress detected uncaught exception: ', err);
         return false;
       });
-      cy.wait(1000)
+      cy.wait(2000)
       cy.get('#navBar > :nth-child(2) > #Dashboard').should('be.visible')
       const startTime = Date.now();
       cy.get('#navBar > :nth-child(2) > #Dashboard').click()

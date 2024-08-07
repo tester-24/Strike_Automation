@@ -13,6 +13,7 @@ describe('Tetsing different types of View Port', () => {
             console.log(`Start time: ${startTime} seconds`);
 
             // Headers
+            cy.wait(2000)
             cy.get('.icon_li > a > img').click();
 
             cy.get('li.active').should('be.visible');
@@ -126,6 +127,7 @@ describe('Tetsing different types of View Port', () => {
             cy.scrollTo(1000, 0);
 
             // PC image
+            cy.wait(2000)
             cy.get(':nth-child(1) > .image_wrap > img').should('be.visible');
 
             // Common Header

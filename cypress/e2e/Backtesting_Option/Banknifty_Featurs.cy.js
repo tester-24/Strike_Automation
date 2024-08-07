@@ -6,14 +6,14 @@ it('Login', () => {
     cy.clearAllCookies();
     cy.visit('https://strike.jainam.in/#/');
     cy.reload();
-    cy.wait(4000);
-    cy.get('.nav-link').click()
+    cy.wait(5000);
+    cy.get('.nav-link').click({force:true})
 
     //Login Flow
-    cy.wait(1000);
+    cy.wait(3000);
     cy.xpath("//kendo-textbox[@placeholder='Enter Email id or Mobile number']").type('9825479404')
     cy.get('.btn_bg_bw').click();
-    cy.wait(1000);
+    cy.wait(3000);
     cy.xpath("//kendo-textbox[@placeholder='Enter Password']").type('Loop@345');
     cy.get('.btn_bg_bw').click();
     cy.log('Login successful');
@@ -34,6 +34,7 @@ it('Login', () => {
     // cy.xpath("//span[contains(text(),'BANKNIFTY')]").click();
 
     // 2) Underlying
+    cy.wait(2000)
     cy.xpath("//input[@id='UnderlyingTypevalue']").click();
 
     // 3) Type
