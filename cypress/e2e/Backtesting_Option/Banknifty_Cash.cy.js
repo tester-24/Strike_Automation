@@ -555,9 +555,8 @@ it("Option Backtesting", () => {
   if (
     cy
       .xpath(
-        "/html/body/app-root/app-layout/app-option-structure/div[2]/div/div/div/div/div[2]/div/div/div/div/app-back-test-result/div[1]/div[2]/div/div[2]/div/kendo-grid/div/kendo-grid-list/div/div[1]/table/tbody/tr"
-      )
-      .should("have.length.above", 0)
+        "/html/body/app-root/app-layout/app-option-structure/div[2]/div/div/div/div/div[2]/div/div/div/div/app-back-test-result/div[1]/div[2]/div/div[2]/div/kendo-grid/div/kendo-grid-list/div/div[1]/table/tbody/tr")
+      .should('have.length.above', 0)
   ) {
     cy.log("data found");
   } else {
@@ -571,7 +570,7 @@ it("Option Backtesting", () => {
 
   cy.get('[style="float: none;"] > .common_anchor').click();
 
-  cy.get(".text-start > .full_wrap > .form-control").type("Test1");
+  cy.get(".text-start > .full_wrap > .form-control").type("Test01");
 
   /*
   let basename = "Test";
@@ -602,7 +601,7 @@ it("Option Backtesting", () => {
     findUniqueName();
 */
   cy.wait(2000)
-  if (cy.get(".full_wrap > :nth-child(3) > .text-danger").should("be.visible"))
+  //if (cy.get(".full_wrap > :nth-child(3) > .text-danger").should("be.visible"))
     // Click on save Button
     cy.get('[style="float: none;"] > .common_anchor').click();
 

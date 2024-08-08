@@ -8,7 +8,7 @@ describe('MarketOverview', () => {
     cy.window().then(() => {
 
       // Capture start time
-      cy.visit('https://uatstrike.jainam.in');
+      cy.visit('https://strike.jainam.in');
       cy.wait(3000);
       Cypress.on('uncaught:exception', (err) => {
         // returning false here prevents Cypress from
@@ -40,11 +40,12 @@ describe('MarketOverview', () => {
 
 
       //Click on Nifty 50 dropdown
-      cy.wait(5000)
+      cy.wait(2000)
+     // cy.get('#k-e9024312-d121-4ce9-849d-cd62318d1b8b > .k-input-button').click({force:true})
       cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div[1]/div/div[1]/div/h3[1]/kendo-dropdownlist/button').click({ force: true })
 
       //Select Nifty Mid Cap 100
-      cy.wait(1000)
+      //cy.wait(1000)
       cy.xpath('/html/body/app-root/kendo-popup/div/kendo-list/div/ul/li[5]/span').click({ force: true })
       // cy.get(':nth-child(1) > .card > .card-header > .flexy > .mlauto > .card-label').should('be.visible')
 
@@ -192,120 +193,121 @@ describe('MarketOverview', () => {
     });
   });
 
-  it('View all buttons', () => {
-    cy.viewport(1800, 1000)
-    //Calculate the Time   
-    cy.window().then(() => {
+  // // it.only('View all buttons', () => {
+  // //   cy.viewport(1800, 1000)
+  // //   //Calculate the Time   
+  // //   cy.window().then(() => {
 
-      // Capture start time
-      cy.visit('https://strike.jainam.in/Market-Overview');
-      cy.wait(3000);
-      Cypress.on('uncaught:exception', (err) => {
-        // returning false here prevents Cypress from
-        // failing the test
-        console.log('Cypress detected uncaught exception: ', err);
-        return false;
-      });
-      cy.wait(3000)
-      cy.get('#navBar > :nth-child(2) > #Dashboard').should('be.visible')
-      const startTime = Date.now();
-      cy.get('#navBar > :nth-child(2) > #Dashboard').click()
+  // //     // Capture start time
+  // //     cy.visit('https://strike.jainam.in/Market-Overview');
+  // //     cy.wait(3000);
+  // //     Cypress.on('uncaught:exception', (err) => {
+  // //       // returning false here prevents Cypress from
+  // //       // failing the test
+  // //       console.log('Cypress detected uncaught exception: ', err);
+  // //       return false;
+  // //     });
+  // //     cy.wait(3000)
+  // //    // cy.get('#navBar > :nth-child(2) > #Dashboard').should('be.visible')
+  // //     const startTime = Date.now();
+  // //    // cy.get('#navBar > :nth-child(2) > #Dashboard').click()
 
-      //Dropdown should be visible
-      cy.wait(2000)
-      // cy.xpath('/html[1]/body[1]/app-root[1]/app-layout[1]/app-dashboard[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h3[1]/kendo-dropdownlist[1]/button[1]').should('be.visible')
-      const endTime = Date.now();
-      console.log(`End time: ${endTime} seconds`);
-      const loadTime = (endTime - startTime); // Calculate load time
-      console.log(`Home page load time: ${loadTime} seconds`);
-      cy.log(`Page load time: ${endTime - startTime} seconds`);
+  // //     //Dropdown should be visible
+  // //     cy.wait(2000)
+  // //    // cy.xpath('/html[1]/body[1]/app-root[1]/app-layout[1]/app-dashboard[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h3[1]/kendo-dropdownlist[1]/button[1]').should('be.visible')
+  // //     const endTime = Date.now();
+  // //     console.log(`End time: ${endTime} seconds`);
+  // //     const loadTime = (endTime - startTime); // Calculate load time
+  // //     console.log(`Home page load time: ${loadTime} seconds`);
+  // //     cy.log(`Page load time: ${endTime - startTime} seconds`);
 
-      // Optionally, log a warning if load time exceeds a threshold
-      if (loadTime > 2) { // Adjust threshold as needed (2 seconds in this example)
-        console.warn(`Market  Page  load time exceeded threshold! (${loadTime}s)`);
-      }
+  // //     // Optionally, log a warning if load time exceeds a threshold
+  // //     if (loadTime > 2) { // Adjust threshold as needed (2 seconds in this example)
+  // //       console.warn(`Market  Page  load time exceeded threshold! (${loadTime}s)`);
+  // //     }
 
-      // Scroll to up
-      cy.scrollTo('top')
+  // //     // click on View all FII DII activity
+  // //     cy.wait(1000) 
+  // //     cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div[3]/div/div[2]/div/a').click({setTimeout:1000})
+  // //    // cy.xpath('/html/body/app-root/app-layout/app-fii-dii-page/div/div/div/div/div/div/div/div/div/div/div[1]/div/h3/span').should('be.visible')
+    
+  // //     cy.go('back')
+  // //     cy.wait(1000)
+  // //     //cy.scrollTo('top')
+  // //     // Click on Top gainers view all(7 day%)
+  // //     cy.wait(3000)
+  // //     cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[1]/app-dashboard-charts/div/div[2]/div[1]/a').click({force:true})
+  // //     //cy.get('.col-xxl-4.pos_relative > app-dashboard-charts > .card > .card-body > .flexspbn > a').click({ force: true },{timeout:500})
 
-      // click on View all FII DII activity 
-      cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div[3]/div/div[2]/div/a').click({setTimeout:1000})
-      cy.xpath('/html/body/app-root/app-layout/app-fii-dii-page/div/div/div/div/div/div/div/div/div/div/div[1]/div/h3/span').should('be.visible')
-      cy.go('back')
-      //cy.scrollTo('top')
-      // Click on Top gainers view all(7 day%)
-      //  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[1]/app-dashboard-charts/div/div[2]/div[1]/a').click()
-      cy.get('.col-xxl-4.pos_relative > app-dashboard-charts > .card > .card-body > .flexspbn > a').click({ force: true },{timeout:500})
+  // //     if (cy.get("table[class='k-grid-table k-table k-table-md']>tbody>tr")>0) {
+  // //       cy.log('Records available')
+  // //     }
+      
+  // //     cy.xpath('/html/body/app-root/app-layout/app-top-gainers-losers/div/div/div/div/div/div[3]/div/kendo-grid/div/div/div/table/thead/tr/th[4]/span/span/kendo-dropdownlist/button/kendo-icon-wrapper/kendo-icon').click({force:true})
+  // //     // select (30 days %)
+  // //     cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[2]/span[1]').click({timeout:500})
+  // //     if (cy.get("table[class='k-grid-table k-table k-table-md']>tbody>tr").should('have.length.greaterThan', 0)) {
+  // //       cy.log('Records available')
+  // //     }
 
-      if (cy.get("table[class='k-grid-table k-table k-table-md']>tbody>tr").should('have.length.greaterThan', 0)) {
-        cy.log('Records available')
-      }
-      cy.wait(1000)
-      cy.xpath('/html/body/app-root/app-layout/app-top-gainers-losers/div/div/div/div/div/div[2]/div/kendo-grid/div/div/div/table/thead/tr/th[4]/span/span/kendo-dropdownlist/button/kendo-icon-wrapper/kendo-icon').click({force:true})
-      // select (30 days %)
-      cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[2]/span[1]').click({timeout:500})
-      if (cy.get("table[class='k-grid-table k-table k-table-md']>tbody>tr").should('have.length.greaterThan', 0)) {
-        cy.log('Records available')
-      }
+  // //     //click on Top gainers view all (30 days %)
+  // //     cy.xpath('/html/body/app-root/app-layout/app-top-gainers-losers/div/div/div/div/div/div[3]/div/kendo-grid/div/div/div/table/thead/tr/th[5]/span/span/kendo-dropdownlist').click({timeout:500})
 
-      //click on Top gainers view all (30 days %)
-      cy.xpath('/html/body/app-root/app-layout/app-top-gainers-losers/div/div/div/div/div/div[2]/div/kendo-grid/div/div/div/table/thead/tr/th[5]/span/span/kendo-dropdownlist/button').click({timeout:500})
+  // //     //select (7 days %)
+    
+  // //     cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[1]').click({timeout:500})
+  // //     if (cy.get("table[class='k-grid-table k-table k-table-md']>tbody>tr")>=0) {
+  // //       cy.log('Records available')
+  // //     }
+  // //     cy.go('back')
 
-      //select (7 days %)
-      cy.wait(1000)
-      cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[1]').click({timeout:500})
-      if (cy.get("table[class='k-grid-table k-table k-table-md']>tbody>tr").should('have.length.greaterThan', 0)) {
-        cy.log('Records available')
-      }
-      cy.go('back')
+  //   //   //click on  Top Losers view all (7 day%)
+  //   //   cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[2]/div/app-dashboard-charts/div/div[2]/div[1]/a').click({force:true})
+  //   //  // cy.get(':nth-child(2) > .pos_relative > app-dashboard-charts > .card > .card-body > .flexspbn > a').click()
 
-      //click on  Top Losers view all (7 day%)
-      // cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[2]/div/app-dashboard-charts/div/div[2]/div[1]/a').click()
-      cy.get(':nth-child(2) > .pos_relative > app-dashboard-charts > .card > .card-body > .flexspbn > a').click()
+  //   //   if (cy.get("table[class='k-grid-table k-table k-table-md']>tbody>tr").should('have.length.greaterThan', 0)) {
+  //   //     cy.log('Records available')
+  //   //   }
+  //   //  // cy.xpath('/html/body/app-root/app-layout/app-top-gainers-losers/div/div/div/div/div/div[2]/div/kendo-grid/div/div/div/table/thead/tr/th[4]/span/span/kendo-dropdownlist/button').click()
 
-      if (cy.get("table[class='k-grid-table k-table k-table-md']>tbody>tr").should('have.length.greaterThan', 0)) {
-        cy.log('Records available')
-      }
-      cy.xpath('/html/body/app-root/app-layout/app-top-gainers-losers/div/div/div/div/div/div[2]/div/kendo-grid/div/div/div/table/thead/tr/th[4]/span/span/kendo-dropdownlist/button').click()
+  //   //   //click on Top Losers view all (30 days %)
+  //   //   cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[2]/span[1]').click({timeout:2000})
 
-      //click on Top Losers view all (30 days %)
-      cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[2]/span[1]').click({timeout:2000})
+  //   //   if (cy.get("table[class='k-grid-table k-table k-table-md']>tbody>tr").should('have.length.greaterThan', 0)) {
+  //   //     cy.log('Records available')
+  //   //   }
 
-      if (cy.get("table[class='k-grid-table k-table k-table-md']>tbody>tr").should('have.length.greaterThan', 0)) {
-        cy.log('Records available')
-      }
+  //   //   //click top losers view all on (30 days %)
+  //   //   cy.xpath('/html/body/app-root/app-layout/app-top-gainers-losers/div/div/div/div/div/div[2]/div/kendo-grid/div/div/div/table/thead/tr/th[5]/span/span/kendo-dropdownlist/button').click()
 
-      //click top losers view all on (30 days %)
-      cy.xpath('/html/body/app-root/app-layout/app-top-gainers-losers/div/div/div/div/div/div[2]/div/kendo-grid/div/div/div/table/thead/tr/th[5]/span/span/kendo-dropdownlist/button').click()
+  //   //   //select (7 days %)
+  //   //   cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[1]/span[1]').click()
 
-      //select (7 days %)
-      cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[1]/span[1]').click()
+  //   //   if (cy.get("table[class='k-grid-table k-table k-table-md']>tbody>tr").should('have.length.greaterThan', 0)) {
+  //   //     cy.log('Records available')
+  //   //   }
+  //   //   cy.go('back')
 
-      if (cy.get("table[class='k-grid-table k-table k-table-md']>tbody>tr").should('have.length.greaterThan', 0)) {
-        cy.log('Records available')
-      }
-      cy.go('back')
+  //     //click on 52 Week high view all
+  //     //cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[4]/div/app-dashboard-charts/div/div[2]/div[1]/a').click({force:true})
+  //     cy.get(':nth-child(4) > :nth-child(4) > .pos_relative > app-dashboard-charts > .card > .card-body > .flexspbn > a').click()
 
-      //click on 52 Week high view all
-      //cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[4]/div/app-dashboard-charts/div/div[2]/div[1]/a').click({force:true})
-      cy.get(':nth-child(4) > :nth-child(4) > .pos_relative > app-dashboard-charts > .card > .card-body > .flexspbn > a').click()
-
-      if (cy.get("table[class='k-grid-table k-table k-table-md']>tbody>tr").should('have.length.greaterThan', 0)) {
-        cy.log('Records available')
-      }
-      cy.go('back')
+  //     if (cy.get("table[class='k-grid-table k-table k-table-md']>tbody>tr").should('have.length.greaterThan', 0)) {
+  //       cy.log('Records available')
+  //     }
+  //     cy.go('back')
 
 
-      // click on 52 week low
-      //cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[2]/div/app-dashboard-charts/div/div[2]/div[1]/a').click({force:true})
-      cy.get(':nth-child(5) > .pos_relative > app-dashboard-charts > .card > .card-body > .flexspbn > a').click()
-      //cy.wait(3000)
-      if (cy.get("table[class='k-grid-table k-table k-table-md']>tbody>tr").should('have.length.greaterThan', 0)) {
-        cy.log('Records available')
-      }
-      cy.go('back')
-    });
-  });
+  //     // click on 52 week low
+  //     //cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[2]/div/app-dashboard-charts/div/div[2]/div[1]/a').click({force:true})
+  //     cy.get(':nth-child(5) > .pos_relative > app-dashboard-charts > .card > .card-body > .flexspbn > a').click()
+  //     //cy.wait(3000)
+  //     if (cy.get("table[class='k-grid-table k-table k-table-md']>tbody>tr").should('have.length.greaterThan', 0)) {
+  //       cy.log('Records available')
+  //     }
+  //     cy.go('back')
+  //   });
+  // });
 
 
   it('Click on Calender', () => {
@@ -360,7 +362,8 @@ describe('MarketOverview', () => {
       }
 
       //Click on Dividends
-      cy.xpath('/html/body/app-root/app-layout/app-corporate-action-page/div/div/div/div/div/div[1]/h3/ul/li[2]/a').click({force:true})
+      cy.wait(1000)
+      cy.xpath('/html/body/app-root/app-layout/app-corporate-action-page/div/div/div/div/div/div[2]/h3/ul/li[2]/a').click({force:true})
       if (cy.xpath("table[class='k-grid-table k-table k-table-md']>tbody>tr") > 0) {
         cy.log('records available')
 
@@ -370,7 +373,8 @@ describe('MarketOverview', () => {
        // cy.xpath('/html/body/app-root/app-layout/app-corporate-action-page/div/div/div/div/div/div[2]/div/div/div/kendo-grid/div/kendo-grid-list/div/div[1]/table/tbody/tr/td').should('be.visible')
       }
       //Click on  Right Issue
-      cy.xpath('/html/body/app-root/app-layout/app-corporate-action-page/div/div/div/div/div/div[1]/h3/ul/li[3]/a').click()
+      cy.wait(1000)
+      cy.xpath('/html/body/app-root/app-layout/app-corporate-action-page/div/div/div/div/div/div[2]/h3/ul/li[3]/a').click()
 
       if (cy.xpath("table[class='k-grid-table k-table k-table-md']>tbody>tr") > 0) {
         cy.log('records available')

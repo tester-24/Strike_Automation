@@ -147,18 +147,18 @@ it('Login', () => {
     cy.contains('UnderlyingPoints').click();
 
     // Enter Target
-    cy.get('#LegTargetProfitVal_0').clear();
+    cy.get('.is_new_leg > :nth-child(1) > .form_item_wrap > :nth-child(2) > .d-flex > .border-0 > .form-control').clear();
     cy.get('.border-0 > .ng-star-inserted').should("be.visible");
 
-    cy.get('#LegTargetProfitVal_0').type('-10');
+    cy.get('.is_new_leg > :nth-child(1) > .form_item_wrap > :nth-child(2) > .d-flex > .border-0 > .form-control').type('-10');
     cy.get('#LegTargetProfitError_0').should("be.visible");
-    cy.get('#LegTargetProfitVal_0').clear();
+    cy.get('.is_new_leg > :nth-child(1) > .form_item_wrap > :nth-child(2) > .d-flex > .border-0 > .form-control').clear();
 
-    cy.get('#LegTargetProfitVal_0').type('0');
+    cy.get('.is_new_leg > :nth-child(1) > .form_item_wrap > :nth-child(2) > .d-flex > .border-0 > .form-control').type('0');
     cy.get('#LegTargetProfitError_0').should("be.visible");
 
-    cy.get('#LegTargetProfitVal_0').clear();
-    cy.get('#LegTargetProfitVal_0').type('100');
+    cy.get('.is_new_leg > :nth-child(1) > .form_item_wrap > :nth-child(2) > .d-flex > .border-0 > .form-control').clear();
+    cy.get('.is_new_leg > :nth-child(1) > .form_item_wrap > :nth-child(2) > .d-flex > .border-0 > .form-control').type('100');
 
     // cy.get('#LegBuilder1 > .leg_inner_form_wrap > .is_new_leg > :nth-child(1) > .form_item_wrap > .text-gray-800 > .ml-2').click();
 
@@ -169,10 +169,10 @@ it('Login', () => {
     cy.get('.is_new_leg > :nth-child(2) > .form_item_wrap > :nth-child(2) > .d-flex > .border-0 > .form-control').should("be.visible");
 
     cy.get('.is_new_leg > :nth-child(2) > .form_item_wrap > :nth-child(2) > .d-flex > .border-0 > .form-control').type('-10');
-    cy.get('#LegStopLossError_0 > .text-danger').should("be.visible");
+    cy.get('#LegStopLossError_0').should("be.visible");
 
     cy.get('.is_new_leg > :nth-child(2) > .form_item_wrap > :nth-child(2) > .d-flex > .border-0 > .form-control').type('0');
-    cy.get('#LegStopLossError_0 > .text-danger').should("be.visible");
+    cy.get('#LegStopLossError_0').should("be.visible");
 
     cy.get('.is_new_leg > :nth-child(2) > .form_item_wrap > :nth-child(2) > .d-flex > .border-0 > .form-control').clear();
     cy.get('.is_new_leg > :nth-child(2) > .form_item_wrap > :nth-child(2) > .d-flex > .border-0 > .form-control').type('50');
