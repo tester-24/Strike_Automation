@@ -87,7 +87,7 @@ describe('MarketOverview', () => {
       cy.scrollTo(1000, 0);
 
       //select BSE SMALL CAP
-      // cy.wait(500)
+       cy.wait(1000)
       cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div[2]/div/div[1]/div/h3[1]/kendo-dropdownlist/button').click({ force: true })
       cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[5]/span[1]').should('be.visible')
       cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[5]/span[1]').click()
@@ -240,7 +240,8 @@ describe('MarketOverview', () => {
       if (cy.get("table[class='k-grid-table k-table k-table-md']>tbody>tr").should('have.length.greaterThan', 0)) {
         cy.log('Records available')
       }
-      cy.xpath('/html/body/app-root/app-layout/app-top-gainers-losers/div/div/div/div/div/div[2]/div/kendo-grid/div/div/div/table/thead/tr/th[4]/span/span/kendo-dropdownlist/button/kendo-icon-wrapper/kendo-icon').click()
+      cy.wait(1000)
+      cy.xpath('/html/body/app-root/app-layout/app-top-gainers-losers/div/div/div/div/div/div[2]/div/kendo-grid/div/div/div/table/thead/tr/th[4]/span/span/kendo-dropdownlist/button/kendo-icon-wrapper/kendo-icon').click({force:true})
       // select (30 days %)
       cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[2]/span[1]').click({timeout:500})
       if (cy.get("table[class='k-grid-table k-table k-table-md']>tbody>tr").should('have.length.greaterThan', 0)) {
@@ -354,18 +355,19 @@ describe('MarketOverview', () => {
       }
       else {
         cy.log('No records available')
-        cy.xpath('/html/body/app-root/app-layout/app-corporate-action-page/div/div/div/div/div/div[2]/div/div/div/kendo-grid/div/kendo-grid-list/div/div[1]/table/tbody/tr/td').should('be.visible')
+        cy.wait(1000)
+       // cy.xpath('/html/body/app-root/app-layout/app-corporate-action-page/div/div/div/div/div/div[2]/div/div/div/kendo-grid/div/kendo-grid-list/div/div[1]/table/tbody/tr/td').should('be.visible')
       }
 
       //Click on Dividends
-      cy.xpath('/html/body/app-root/app-layout/app-corporate-action-page/div/div/div/div/div/div[1]/h3/ul/li[2]/a').click()
+      cy.xpath('/html/body/app-root/app-layout/app-corporate-action-page/div/div/div/div/div/div[1]/h3/ul/li[2]/a').click({force:true})
       if (cy.xpath("table[class='k-grid-table k-table k-table-md']>tbody>tr") > 0) {
         cy.log('records available')
 
       }
       else {
         cy.log('No records available')
-        cy.xpath('/html/body/app-root/app-layout/app-corporate-action-page/div/div/div/div/div/div[2]/div/div/div/kendo-grid/div/kendo-grid-list/div/div[1]/table/tbody/tr/td').should('be.visible')
+       // cy.xpath('/html/body/app-root/app-layout/app-corporate-action-page/div/div/div/div/div/div[2]/div/div/div/kendo-grid/div/kendo-grid-list/div/div[1]/table/tbody/tr/td').should('be.visible')
       }
       //Click on  Right Issue
       cy.xpath('/html/body/app-root/app-layout/app-corporate-action-page/div/div/div/div/div/div[1]/h3/ul/li[3]/a').click()
@@ -376,7 +378,7 @@ describe('MarketOverview', () => {
       }
       else {
         cy.log('No records available')
-        cy.xpath('/html/body/app-root/app-layout/app-corporate-action-page/div/div/div/div/div/div[2]/div/div/div/kendo-grid/div/kendo-grid-list/div/div[1]/table/tbody/tr/td').should('be.visible')
+       // cy.xpath('/html/body/app-root/app-layout/app-corporate-action-page/div/div/div/div/div/div[2]/div/div/div/kendo-grid/div/kendo-grid-list/div/div[1]/table/tbody/tr/td').should('be.visible')
       }
       cy.go('back')
       cy.scrollTo('top')

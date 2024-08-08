@@ -148,6 +148,7 @@ it('Login', () => {
     cy.contains('UnderlyingPoints').click();
 
     // Enter Target
+    cy.wait(3000)
     cy.get('#LegTargetProfitVal_0').clear();
     cy.get('.border-0 > .ng-star-inserted').should("be.visible");
 
