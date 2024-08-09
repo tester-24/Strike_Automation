@@ -45,7 +45,7 @@ describe('MarketOverview', () => {
       cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div[1]/div/div[1]/div/h3[1]/kendo-dropdownlist/button').click({ force: true })
 
       //Select Nifty Mid Cap 100
-      //cy.wait(1000)
+      cy.wait(1000)
       cy.xpath('/html/body/app-root/kendo-popup/div/kendo-list/div/ul/li[5]/span').click({ force: true })
       // cy.get(':nth-child(1) > .card > .card-header > .flexy > .mlauto > .card-label').should('be.visible')
 

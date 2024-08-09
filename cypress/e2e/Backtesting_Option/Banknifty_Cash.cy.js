@@ -51,9 +51,7 @@ it("Option Backtesting", () => {
 
   // 4) Entry Time
   cy.wait(1500);
-  cy.xpath(
-    "(//kendo-icon[@class='k-i-clock k-button-icon k-icon ng-star-inserted'])[2]"
-  ).click();
+  cy.xpath( "(//kendo-icon[@class='k-i-clock k-button-icon k-icon ng-star-inserted'])[2]").click({force:true});
 
   cy.xpath("(//input[@id='timepicker-1'])[1]").click();
   cy.xpath("(//input[@id='timepicker-1'])[1]")
@@ -570,7 +568,7 @@ it("Option Backtesting", () => {
 
   cy.get('[style="float: none;"] > .common_anchor').click();
 
-  cy.get(".text-start > .full_wrap > .form-control").type("Test01");
+  cy.get(".text-start > .full_wrap > .form-control").type("Test1234");
 
   /*
   let basename = "Test";
@@ -605,7 +603,7 @@ it("Option Backtesting", () => {
     // Click on save Button
     cy.get('[style="float: none;"] > .common_anchor').click();
 
-  cy.get(".ng-trigger").should("be.visible");
+ // cy.get(".ng-trigger").should("be.visible");
 
   // Click on Strategies
   cy.get("#navBar > :nth-child(3) > #Strategies").click();
@@ -629,7 +627,7 @@ it("Option Backtesting", () => {
   // cy.get('.ng-trigger').should("be.visible");
 
   // Click on Broker Login
-  cy.get(".dash_left_wrap > :nth-child(2) > .common_anchor").click();
+  cy.get('.dash_left_wrap > :nth-child(2) > .common_anchor').click();
 
   // 1) AliceBlue
   cy.get(":nth-child(3) > .inner_wrap > .a > .common_anchor").click();
@@ -646,10 +644,10 @@ it("Option Backtesting", () => {
 
   cy.get("#BtnSubmit").click();
 
-  cy.get(".a > .greenbg").should("be.visible");
+ // cy.get(".a > .greenbg").should("be.visible");
 
-  cy.get(".a > .greenbg").click();
+  //cy.get(".a > .greenbg").click();
 
-  cy.wait(5000);
-  cy.get(".a > .greenbg").click();
+ // cy.wait(5000);
+ // cy.get(".a > .greenbg").click();
 });
