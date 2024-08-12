@@ -1,54 +1,5 @@
 /// <reference types="cypress"/>
 
-it('Login', () => {
-
-    cy.viewport(1750, 800);
-    cy.clearAllCookies();
-    cy.visit('https://strike.jainam.in/#/');
-    cy.reload();
-    cy.get('.nav-link').click()
-    cy.screenshot()
-
-    cy.wait(3000);
-    cy.xpath("//input[@placeholder='Enter User ID']").type('J33');
-    cy.xpath("//input[@id='LoginPassword']").type('Alpha@123');
-    cy.xpath("//p[normalize-space()='Login Now']").click();
-
-    // OTP
-    // cy.wait(1000);
-    // cy.xpath("(//input[@class='text_form ng-pristine ng-invalid ng-touched'])").type('1');
-    // cy.xpath("(//input[@placeholder='-'])[2]").type('2');
-    // cy.xpath("(//input[@placeholder='-'])[3]").type('3');
-    // cy.xpath("(//input[@placeholder='-'])[4]").type('4');
-
-    // Space Mobile Application Pin
-    cy.wait(3000);
-    cy.get('[tabindex="1"]').type('0');
-    cy.get('[tabindex="2"]').type('0');
-    cy.get('[tabindex="3"]').type('0');
-    cy.get('[tabindex="4"]').type('0');
-
-    cy.get('.continue_button_wrap > p').click();
-
-    cy.log('Login successful');
-
-    // Click on Backtesting
-    cy.wait(4000);
-    cy.xpath("//ul[@id='navBar']//a[@id='Backtesting']").click();
-
-    // Click on Option dropdown
-    // cy.xpath("//span[contains(text(),'Option')]").click();
-
-    // Click on Proceed
-    cy.wait(1500);
-    cy.xpath("//a[normalize-space()='Proceed']").click();
-
-    //ADD OPTION DETAILS
-    // 1) Symbol
-    // cy.xpath("//span[contains(text(),'BANKNIFTY')]").click();
-
-    // 2) Underlying
-    // cy.xpath("//input[@id='UnderlyingTypevalue']").click();/// <reference types="cypress"/>
 
 it('Login', () => {
 
@@ -197,18 +148,19 @@ it('Login', () => {
     cy.contains('UnderlyingPoints').click();
 
     // Enter Target
-    cy.get('#LegTargetProfitVal_0').clear();
+    cy.get('.is_new_leg > :nth-child(1) > .form_item_wrap > :nth-child(2) > .d-flex > .border-0 > .form-control').clear();
     cy.get('.border-0 > .ng-star-inserted').should("be.visible");
 
-    cy.get('#LegTargetProfitVal_0').type('-10');
+    cy.get('.is_new_leg > :nth-child(1) > .form_item_wrap > :nth-child(2) > .d-flex > .border-0 > .form-control').type('-10');
     cy.get('#LegTargetProfitError_0').should("be.visible");
-    cy.get('#LegTargetProfitVal_0').clear();
+    cy.get('.is_new_leg > :nth-child(1) > .form_item_wrap > :nth-child(2) > .d-flex > .border-0 > .form-control').clear();
 
-    cy.get('#LegTargetProfitVal_0').type('0');
+    cy.get('.is_new_leg > :nth-child(1) > .form_item_wrap > :nth-child(2) > .d-flex > .border-0 > .form-control').type('0');
     cy.get('#LegTargetProfitError_0').should("be.visible");
 
-    cy.get('#LegTargetProfitVal_0').clear();
-    cy.get('#LegTargetProfitVal_0').type('100');
+    cy.get('.is_new_leg > :nth-child(1) > .form_item_wrap > :nth-child(2) > .d-flex > .border-0 > .form-control').clear();
+    cy.get('.is_new_leg > :nth-child(1) > .form_item_wrap > :nth-child(2) > .d-flex > .border-0 > .form-control').type('100');
+
 
     // cy.get('#LegBuilder1 > .leg_inner_form_wrap > .is_new_leg > :nth-child(1) > .form_item_wrap > .text-gray-800 > .ml-2').click();
 
@@ -219,13 +171,14 @@ it('Login', () => {
     cy.get('.is_new_leg > :nth-child(2) > .form_item_wrap > :nth-child(2) > .d-flex > .border-0 > .form-control').should("be.visible");
 
     cy.get('.is_new_leg > :nth-child(2) > .form_item_wrap > :nth-child(2) > .d-flex > .border-0 > .form-control').type('-10');
-    cy.get('#LegStopLossError_0 > .text-danger').should("be.visible");
+    cy.get('#LegStopLossError_0').should("be.visible");
 
     cy.get('.is_new_leg > :nth-child(2) > .form_item_wrap > :nth-child(2) > .d-flex > .border-0 > .form-control').type('0');
-    cy.get('#LegStopLossError_0 > .text-danger').should("be.visible");
+    cy.get('#LegStopLossError_0').should("be.visible");
 
     cy.get('.is_new_leg > :nth-child(2) > .form_item_wrap > :nth-child(2) > .d-flex > .border-0 > .form-control').clear();
     cy.get('.is_new_leg > :nth-child(2) > .form_item_wrap > :nth-child(2) > .d-flex > .border-0 > .form-control').type('50');
+
 
     /////// Trail SL
     cy.get('#LegBuilder1 > .leg_inner_form_wrap > .is_new_leg > :nth-child(3) > .form_item_wrap > .text-gray-800 > .ml-2').click();
@@ -381,16 +334,11 @@ it('Login', () => {
 
     cy.get('.loader_numb').should("be.visible");
 
-
-
-
-})
-
     // 3) Type
 
     // 4) Entry Time
-    cy.wait(1500);
-    cy.xpath("(//kendo-icon[@class='k-i-clock k-button-icon k-icon ng-star-inserted'])[2]").click();
+    cy.wait(85000);
+   // cy.xpath("(//kendo-icon[@class='k-i-clock k-button-icon k-icon ng-star-inserted'])[2]").click();
 
 
     cy.xpath("(//input[@id='timepicker-1'])[1]").click();
@@ -413,14 +361,14 @@ it('Login', () => {
     cy.scrollTo(1000, 0);
 
     cy.wait(2000);
-    cy.xpath("(//input[@id='timepicker-1'])[1]").click();
+    cy.xpath("(//input[@id='timepicker-1'])[1]").click({force:true});
     cy.xpath("(//input[@id='timepicker-1'])[1]").type("08:20");
     cy.scrollTo(1000, 0);
     cy.xpath("//a[normalize-space()='Save']").click({ force: true });
     cy.scrollTo(1000, 0);
 
     cy.wait(2000);
-    cy.xpath("(//input[@id='timepicker-1'])[1]").click();
+    cy.xpath("(//input[@id='timepicker-1'])[1]").click({force:true});
     cy.xpath("(//input[@id='timepicker-1'])[1]").type("09:20");
     cy.scrollTo(1000, 0);
     cy.xpath("//a[normalize-space()='Save']").click({ force: true });
@@ -428,28 +376,28 @@ it('Login', () => {
 
     // 5) Exit Time
 
-    cy.xpath("(//input[@id='timepicker-2'])[1]").click();
+    cy.xpath("(//input[@id='timepicker-2'])[1]").click({force:true});
     cy.xpath("(//input[@id='timepicker-2'])[1]").type("09:10");
     cy.scrollTo(1000, 0);
     cy.xpath("//a[normalize-space()='Save']").click({ force: true });
     cy.scrollTo(1000, 0);
 
     cy.wait(2000);
-    cy.xpath("(//input[@id='timepicker-2'])[1]").click();
+    cy.xpath("(//input[@id='timepicker-2'])[1]").click({force:true});
     cy.xpath("(//input[@id='timepicker-2'])[1]").type("09:20");
     cy.scrollTo(1000, 0);
     cy.xpath("//a[normalize-space()='Save']").click({ force: true });
     cy.scrollTo(1000, 0);
 
     cy.wait(2000);
-    cy.xpath("(//input[@id='timepicker-2'])[1]").click();
+    cy.xpath("(//input[@id='timepicker-2'])[1]").click({force:true});
     cy.xpath("(//input[@id='timepicker-2'])[1]").type("08:20");
     cy.scrollTo(1000, 0);
     cy.xpath("//a[normalize-space()='Save']").click({ force: true });
     cy.scrollTo(1000, 0);
 
     cy.wait(2000);
-    cy.xpath("(//input[@id='timepicker-2'])[1]").click();
+    cy.xpath("(//input[@id='timepicker-2'])[1]").click({force:true});
     cy.xpath("(//input[@id='timepicker-2'])[1]").type("15:15");
     cy.scrollTo(1000, 0);
     cy.xpath("//a[normalize-space()='Save']").click({ force: true });

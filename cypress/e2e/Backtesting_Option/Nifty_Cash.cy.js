@@ -1,6 +1,6 @@
 /// <reference types="cypress"/>
 
-it('Login', () => {
+it('Nift_Cash', () => {
 
     cy.viewport(1750, 800);
     cy.clearAllCookies();
