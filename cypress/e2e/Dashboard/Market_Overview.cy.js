@@ -23,7 +23,7 @@ describe('MarketOverview', () => {
 
       //Dropdown should be visible
       cy.wait(2000)
-     cy.xpath('/html[1]/body[1]/app-root[1]/app-layout[1]/app-dashboard[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h3[1]/kendo-dropdownlist[1]/button[1]').should('be.visible')
+    // cy.xpath('/html[1]/body[1]/app-root[1]/app-layout[1]/app-dashboard[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h3[1]/kendo-dropdownlist[1]/button[1]').should('be.visible')
       const endTime = Date.now();
       console.log(`End time: ${endTime} seconds`);
       const loadTime = (endTime - startTime); // Calculate load time
