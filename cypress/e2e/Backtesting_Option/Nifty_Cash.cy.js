@@ -5,7 +5,7 @@ it('Nift_Cash', () => {
     cy.viewport(1750, 800);
     cy.clearAllCookies();
     cy.visit('https://strike.jainam.in/#/');
-    cy.reload();
+
     cy.wait(5000);
     cy.get('.nav-link').click()
 
