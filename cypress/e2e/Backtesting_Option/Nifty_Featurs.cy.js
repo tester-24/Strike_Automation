@@ -341,7 +341,7 @@ it('Login', () => {
    // cy.xpath("(//kendo-icon[@class='k-i-clock k-button-icon k-icon ng-star-inserted'])[2]").click();
 
 
-    cy.xpath("(//input[@id='timepicker-1'])[1]").click();
+    cy.xpath("(//input[@id='timepicker-1'])[1]").click({force:true});
     cy.xpath("(//input[@id='timepicker-1'])[1]").type("09.10");
     cy.scrollTo(1000, 0);
     cy.xpath("//a[normalize-space()='Save']").click({ force: true });
