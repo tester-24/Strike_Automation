@@ -35,7 +35,7 @@ it('Banknifty_Feature', () => {
 
     // 2) Underlying
     cy.wait(2000)
-    cy.xpath("//input[@id='UnderlyingTypevalue']").click();
+    cy.xpath("//input[@id='UnderlyingTypevalue']").click({force:true});
 
     // 3) Type
 

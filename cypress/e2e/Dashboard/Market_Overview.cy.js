@@ -2,13 +2,13 @@
 
 describe('MarketOverview', () => {
 
-  it.only('Nifty 50 DropDowns', () => {
+  it('All DropDowns', () => {
     cy.viewport(1800, 1000)
     //Calculate the Time   
     cy.window().then(() => {
 
       // Capture start time
-      cy.visit('https://uatstrike.jainam.in');
+      cy.visit('https://strike.jainam.in');
       cy.wait(3000);
       Cypress.on('uncaught:exception', (err) => {
         // returning false here prevents Cypress from
@@ -22,8 +22,8 @@ describe('MarketOverview', () => {
       cy.get('#navBar > :nth-child(2) > #Dashboard').click()
 
       //Dropdown should be visible
-     // cy.wait(2000)
-      // cy.xpath('/html[1]/body[1]/app-root[1]/app-layout[1]/app-dashboard[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h3[1]/kendo-dropdownlist[1]/button[1]').should('be.visible')
+      cy.wait(2000)
+     cy.xpath('/html[1]/body[1]/app-root[1]/app-layout[1]/app-dashboard[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h3[1]/kendo-dropdownlist[1]/button[1]').should('be.visible')
       const endTime = Date.now();
       console.log(`End time: ${endTime} seconds`);
       const loadTime = (endTime - startTime); // Calculate load time
@@ -36,13 +36,13 @@ describe('MarketOverview', () => {
       }
 
       // Scroll to up
-      cy.scrollTo('top')
+     // cy.scrollTo('top')
 
 
       //Click on Nifty 50 dropdown
-      cy.wait(1000)
-     // cy.get('#k-e9024312-d121-4ce9-849d-cd62318d1b8b > .k-input-button').click({force:true})
-      cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div[1]/div/div[1]/div/h3[1]/kendo-dropdownlist/button').click({ force: true })
+      cy.wait(2000)
+      //cy.get('#k-dbfa3b6b-7825-47b7-aea5-129bead48651 > .k-input-button').click({force:true})
+      cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div[1]/div/div[1]/div/h3[1]/kendo-dropdownlist/button').click({force:true})
 
       //Select Nifty Mid Cap 100
       cy.wait(1000)
@@ -144,11 +144,11 @@ describe('MarketOverview', () => {
       cy.get('.col-xxl-4.pos_relative > app-dashboard-charts > .card > .card-body').should('be.visible')
       cy.scrollTo('center');
       // nifty metal
-      cy.xpath('/html[1]/body[1]/app-root[1]/app-layout[1]/app-dashboard[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/app-dashboard-charts[1]/div[1]/div[2]/div[1]/div[1]/div[1]/kendo-dropdownlist[1]').click()
+      cy.xpath('/html[1]/body[1]/app-root[1]/app-layout[1]/app-dashboard[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/app-dashboard-charts[1]/div[1]/div[2]/div[1]/div[1]/div[1]/kendo-dropdownlist[1]').click({force:true})
       cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[16]/span[1]').click({ force: true })
       cy.get('.col-xxl-4.pos_relative > app-dashboard-charts > .card > .card-body > .flexspbn').should('be.visible')
       // Nifty Reality
-      cy.xpath('/html[1]/body[1]/app-root[1]/app-layout[1]/app-dashboard[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/app-dashboard-charts[1]/div[1]/div[2]/div[1]/div[1]/div[1]/kendo-dropdownlist[1]').click()
+      cy.xpath('/html[1]/body[1]/app-root[1]/app-layout[1]/app-dashboard[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/app-dashboard-charts[1]/div[1]/div[2]/div[1]/div[1]/div[1]/kendo-dropdownlist[1]').click({force:true})
       cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[15]/span[1]').click({ force: true })
       cy.get('.col-xxl-4.pos_relative > app-dashboard-charts > .card > .card-body').should('be.visible')
 
@@ -407,7 +407,7 @@ describe('MarketOverview', () => {
         console.log('Cypress detected uncaught exception: ', err);
         return false;
       });
-      cy.wait(2000)
+      cy.wait(5000)
       cy.get('#navBar > :nth-child(2) > #Dashboard').should('be.visible')
       const startTime = Date.now();
       cy.get('#navBar > :nth-child(2) > #Dashboard').click()
