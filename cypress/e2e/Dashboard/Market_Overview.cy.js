@@ -8,7 +8,7 @@ describe('MarketOverview', () => {
     cy.window().then(() => {
 
       // Capture start time
-      cy.visit('https://strike.jainam.in');
+      cy.visit('https://uatstrike.jainam.in');
       cy.wait(3000);
       Cypress.on('uncaught:exception', (err) => {
         // returning false here prevents Cypress from
@@ -40,12 +40,12 @@ describe('MarketOverview', () => {
 
 
       //Click on Nifty 50 dropdown
-      cy.wait(3000)
+      cy.wait(4000)
       //cy.get('#k-dbfa3b6b-7825-47b7-aea5-129bead48651 > .k-input-button').click({force:true})
       cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div[1]/div/div[1]/div/h3[1]/kendo-dropdownlist/button').click({force:true})
 
       //Select Nifty Mid Cap 100
-      cy.wait(1000)
+      cy.wait(2000)
       cy.xpath('/html/body/app-root/kendo-popup/div/kendo-list/div/ul/li[5]/span').click({ force: true })
       // cy.get(':nth-child(1) > .card > .card-header > .flexy > .mlauto > .card-label').should('be.visible')
 
