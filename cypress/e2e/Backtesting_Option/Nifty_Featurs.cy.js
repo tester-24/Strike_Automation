@@ -349,6 +349,7 @@ it('Login', () => {
 
     cy.xpath("(//input[@id='timepicker-1'])[1]").click();
     cy.xpath("(//input[@id='timepicker-1'])[1]").type("09.05");
+    
     cy.scrollTo(1000, 0);
     cy.xpath("//a[normalize-space()='Save']").click({ force: true });
     cy.scrollTo(1000, 0);
