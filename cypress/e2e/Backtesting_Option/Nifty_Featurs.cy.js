@@ -35,7 +35,8 @@ it('Login', () => {
     // cy.xpath("//span[contains(text(),'BANKNIFTY')]").click();
 
     // 2) Underlying
-    cy.xpath("//input[@id='UnderlyingTypevalue']").click();
+    cy.wait(1000)
+    cy.xpath("//input[@id='UnderlyingTypevalue']").click({force:true});
 
     // 3) Type
 
@@ -347,7 +348,7 @@ it('Login', () => {
     cy.xpath("//a[normalize-space()='Save']").click({ force: true });
     cy.scrollTo(1000, 0);
 
-    cy.xpath("(//input[@id='timepicker-1'])[1]").click();
+    cy.xpath("(//input[@id='timepicker-1'])[1]").click({force:true});
     cy.xpath("(//input[@id='timepicker-1'])[1]").type("09.05");
     
     cy.scrollTo(1000, 0);
