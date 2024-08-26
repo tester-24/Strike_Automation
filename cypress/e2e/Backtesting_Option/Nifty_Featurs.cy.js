@@ -1,7 +1,7 @@
 /// <reference types="cypress"/>
 
 
-it('Login', () => {
+it('Nifty Feature', () => {
 
     cy.viewport(1750, 800);
     cy.clearAllCookies();

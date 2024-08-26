@@ -71,6 +71,7 @@ describe('MarketOverview', () => {
 
 
       //Click on Nifty 50 dropdown
+      cy.wait(1000)
       cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div[1]/div/div[1]/div/h3[1]/kendo-dropdownlist/button').click()
 
       // Select Nifty Energy

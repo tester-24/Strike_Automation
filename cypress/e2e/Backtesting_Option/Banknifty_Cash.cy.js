@@ -568,7 +568,7 @@ it("Option Backtesting", () => {
 
   cy.get('[style="float: none;"] > .common_anchor').click();
 
-  cy.get(".text-start > .full_wrap > .form-control").type("User258");
+  cy.get(".text-start > .full_wrap > .form-control").type("users123456");
 
   /*
   let basename = "Test";
@@ -606,7 +606,7 @@ it("Option Backtesting", () => {
  // cy.get(".ng-trigger").should("be.visible");
 
   // Click on Strategies
-  cy.get("#navBar > :nth-child(3) > #Strategies").click();
+  cy.get("#navBar > :nth-child(3) > #Strategies").click({force:true});
 
   // Click on my Strategies
   cy.get(
