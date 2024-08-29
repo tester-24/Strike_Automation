@@ -20,7 +20,7 @@ it('Banknifty_Feature', () => {
 
     // Click on Backtesting
     cy.wait(4000);
-    cy.xpath("//ul[@id='navBar']//a[@id='Backtesting']").click();
+    cy.xpath("//ul[@id='navBar']//a[@id='Backtesting']").click({force:true});
 
     // Click on Option dropdown
     // cy.xpath("//span[contains(text(),'Option')]").click();
