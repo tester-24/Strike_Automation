@@ -11,7 +11,7 @@ it('Nift_Cash', () => {
 
     //Login Flow
     cy.wait(2000);
-    cy.xpath("//kendo-textbox[@placeholder='Enter Email id or Mobile number']").type('9825479404')
+    cy.xpath("/html[1]/body[1]/app-root[1]/app-layout[1]/app-headerpanel[1]/app-login[1]/div[1]/kendo-dialog[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/kendo-textbox[1]/input[1]").type('9825479404')
     cy.get('.btn_bg_bw').click();
     cy.wait(2000);
     cy.xpath("//kendo-textbox[@placeholder='Enter Password']").type('Loop@345');
@@ -20,7 +20,7 @@ it('Nift_Cash', () => {
 
     // Click on Backtesting
     cy.wait(4000);
-    cy.xpath("//ul[@id='navBar']//a[@id='Backtesting']").click();
+    cy.xpath("/html[1]/body[1]/app-root[1]/app-layout[1]/app-headerpanel[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/a[1]").click();
 
     // Click on Option dropdown
     // cy.xpath("//span[contains(text(),'Option')]").click();
