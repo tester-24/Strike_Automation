@@ -125,7 +125,8 @@ it('Nift_Cash', () => {
     cy.scrollTo(20, 20);
 
     //2) Expiry
-    cy.xpath('//body[1]/app-root[1]/app-layout[1]/app-option-structure[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]').should('be.visible').type('{downarrow}{Enter}')
+    cy.wait(3000)
+   // cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[2]').click()
 
     //3)Position
     cy.get('#LBPositionSell').click();
