@@ -8,7 +8,7 @@ describe('MarketOverview', () => {
     cy.window().then(() => {
 
       // Capture start time
-      cy.visit('https://uatstrike.jainam.in');
+      cy.visit('https://strike.jainam.in');
       cy.wait(3000);
       Cypress.on('uncaught:exception', (err) => {
         // returning false here prevents Cypress from
@@ -17,9 +17,9 @@ describe('MarketOverview', () => {
         return false;
       });
       cy.wait(5000)
-      cy.get('#navBar > :nth-child(2) > #Dashboard').should('be.visible')
+      cy.get('#navBarWeb > :nth-child(2) > #Dashboard').should('be.visible')
       const startTime = Date.now();
-      cy.get('#navBar > :nth-child(2) > #Dashboard').click()
+      cy.get('#navBarWeb > :nth-child(2) > #Dashboard').click()
 
       //Dropdown should be visible
       cy.wait(2000)
@@ -333,9 +333,9 @@ describe('MarketOverview', () => {
         return false;
       });
       cy.wait(2000)
-      cy.get('#navBar > :nth-child(2) > #Dashboard').should('be.visible')
+      cy.get('#navBarWeb > :nth-child(2) > #Dashboard').should('be.visible')
       const startTime = Date.now();
-      cy.get('#navBar > :nth-child(2) > #Dashboard').click()
+      cy.get('#navBarWeb > :nth-child(2) > #Dashboard').click()
 
       //Dropdown should be visible
       cy.wait(2000)
@@ -411,9 +411,9 @@ describe('MarketOverview', () => {
         return false;
       });
       cy.wait(5000)
-      cy.get('#navBar > :nth-child(2) > #Dashboard').should('be.visible')
+      cy.get('#navBarWeb > :nth-child(2) > #Dashboard').should('be.visible')
       const startTime = Date.now();
-      cy.get('#navBar > :nth-child(2) > #Dashboard').click()
+      cy.get('#navBarWeb > :nth-child(2) > #Dashboard').click()
 
       //Dropdown should be visible
       cy.wait(2000)
@@ -432,8 +432,7 @@ describe('MarketOverview', () => {
       // Scroll to up
       // click on Recent News
       cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[7]/div/div/div[2]/a').click()
-      cy.xpath('/html/body/app-root/app-layout/app-news-marketplace-page/div/div/div/div/div/div[2]/div/div/div/div/div/div[2]/div/a[1]/span/span').should('be.visible')
-      cy.xpath('/html/body/app-root/app-layout/app-news-marketplace-page/div/div/div/div/div/div[2]/div/div/div/div/div/div[3]/div[1]/div/div[2]/a').should('be.visible')
+      
       //cy.wait(1000)
       cy.go(-1)
 

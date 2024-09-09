@@ -108,14 +108,13 @@ describe('Tetsing different types of View Port', () => {
             cy.screenshot('onBeforeScreenshot');
             console.log(`Start time: ${startTime} seconds`);
 
-            // Headers
-            cy.get('#navBar > :nth-child(1) > #Home').should('be.visible');
-            cy.get('#navBar > :nth-child(2) > #Dashboard').should('be.visible');
-            cy.get('#navBar > :nth-child(3) > #Strategies').should('be.visible');
-            cy.get('#Marketplace').should('be.visible');
-            cy.get('#navBar > :nth-child(5) > #Backtesting').should('be.visible');
-            cy.get('.nav-link').should('be.visible');
-
+            cy.wait(5000)
+            cy.get('#HomeWeb').should('be.visible');
+           cy.get('#navBarWeb > :nth-child(2) > #Dashboard').should('be.visible');
+           cy.get('#navBarWeb > :nth-child(3) > #Strategies').should('be.visible');
+           cy.get('#navBarWeb > :nth-child(4) > #Marketplace').should('be.visible');
+           cy.get('#navBarWeb > :nth-child(5) > #Backtesting').should('be.visible');
+           cy.get('.nav-link').should('be.visible');
             // live price
             cy.get('marquee').should('be.visible');
 
@@ -203,12 +202,12 @@ describe('Tetsing different types of View Port', () => {
 
             // Headers
             cy.wait(5000)
-            cy.get('#navBar > :nth-child(1) > #Home').should('be.visible');
-            cy.get('#navBar > :nth-child(2) > #Dashboard').should('be.visible');
-            cy.get('#navBar > :nth-child(3) > #Strategies').should('be.visible');
-            cy.get('#Marketplace').should('be.visible');
-            cy.get('#navBar > :nth-child(5) > #Backtesting').should('be.visible');
-            cy.get('.nav-link').should('be.visible');
+            cy.get('#HomeWeb').should('be.visible');
+           cy.get('#navBarWeb > :nth-child(2) > #Dashboard').should('be.visible');
+           cy.get('#navBarWeb > :nth-child(3) > #Strategies').should('be.visible');
+           cy.get('#navBarWeb > :nth-child(4) > #Marketplace').should('be.visible');
+           cy.get('#navBarWeb > :nth-child(5) > #Backtesting').should('be.visible');
+           cy.get('.nav-link').should('be.visible');
 
             // live price
             cy.get('marquee').should('be.visible');
@@ -263,7 +262,7 @@ describe('Tetsing different types of View Port', () => {
 
             cy.get('#BtnSubmit').click();
             cy.get('#BtnSubmit').click({force:true});
-            cy.get('#BtnSubmit').click();
+            cy.get('#BtnSubmit').click({force:true});
             cy.get('#BtnSubmit').click();
 
             // Capture end time.
