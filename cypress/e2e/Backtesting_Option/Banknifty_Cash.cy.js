@@ -383,7 +383,7 @@ it("Option Backtesting", () => {
 
   cy.get('[style="float: none;"] > .common_anchor').click();
 
-  cy.get(".text-start > .full_wrap > .form-control").type("users158685");
+  cy.get(".text-start > .full_wrap > .form-control").type("users885474");
 
   /*
   let basename = "Test";
