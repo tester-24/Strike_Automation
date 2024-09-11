@@ -377,102 +377,104 @@ it("Option Backtesting", () => {
     }
   
     ///// Click on Save Strategies
-   
-    // Initial Setup
-    cy.get(".sticky_btns_wrap > :nth-child(2) > div > .ng-star-inserted").click();
-    cy.get(".k-window-titlebar").should("be.visible");
-    cy.get('.text-start > .full_wrap > .form-control').type('user45432')
-    cy.get('[style="float: none;"] > .common_anchor').click()
+  cy.get(".sticky_btns_wrap > :nth-child(2) > div > .ng-star-inserted").click();
 
-    describe('Find and Validate Unique Name', () => {
-        let baseName = 'TestName';
-        let index = 1; // Starting index for uniqueness
-        let nameToTest;
+  cy.get(".k-window-titlebar").should("be.visible");
+
+  cy.get('[style="float: none;"] > .common_anchor').click();
+
+  cy.get(".text-start > .full_wrap > .form-control").type("Test1");
+
+  
+
+    const baseName = "Test";
+    let index = 1;
+  
+    const checkNameAndSubmit = (name) => {
+      // Clear and type the name into the textbox
+      cy.get(".text-start > .full_wrap > .form-control").clear().type(name);
+      // Click the submit button
+      cy.get('[style="float: none;"] > .common_anchor').click();
+  
+      // Return the promise to be used in the recursion
+      return cy.get(".error-message").should("not.exist");
+    };
+  
+    const findUniqueName = () => {
+      const nameToTest = `${baseName}${index}`;
       
-        // Function to generate the unique name
-        const generateUniqueName = () => `${baseName}${index}`;
-      
-        // Function to check if the name is valid and submit
-        const checkNameAndSubmit = (name) => {
-          cy.get('.text-start > .full_wrap > .form-control') // Adjust the selector as needed
-            .clear()
-            .type(name);
-          
-          cy.get('[style="float: none;"] > .common_anchor') // Adjust the selector as needed
-            .click();
-          
-          // Return the result of the check
-          return cy.get('.error-message').should('not.exist');
-        };
-      
-        // Recursive function to find a unique name
-        const findUniqueName = () => {
-          nameToTest = generateUniqueName();
-          return checkNameAndSubmit(nameToTest).then(() => {
-            // Check if there is an error message indicating name is not unique
-            cy.get('.error-message').then(($error) => {
-              if ($error.length > 0) {
-                // If error message exists, increment the index and check again
-                index++;
-                findUniqueName(); // Recursively check the next name
-              } else {
-                // Unique name found, assert success
-                cy.get('.success-message').should('be.visible'); // Adjust the selector as needed
-              }
-            });
-          });
-        };
-      
-        // Test case to start the process
-        it('should find and validate a unique name', () => {
-          cy.visit('your-page-url'); // Replace with the actual URL
-          findUniqueName(); // Start the process of finding a unique name
+      return checkNameAndSubmit(nameToTest).then(() => {
+        // If no error message exists, check for success
+        cy.get('.success-message').should('be.visible').then(() => {
+          // Unique name found, end recursion
+          cy.log(`Unique name found: ${nameToTest}`);
+        }).catch(() => {
+          // If no success message, increment index and retry
+          index++;
+          findUniqueName(); // Recursively check the next name
         });
       });
-      
+    };
   
-    
-   
+    it('should find a unique name and submit', () => {
+      cy.visit('your-page-url'); // Replace with your actual URL
   
-    // Click on my Strategies
+      // Start the recursive search
+      findUniqueName();
+    });
+
   
-    cy.get('#navBarWeb > :nth-child(3) > #Strategies').click();
-  
-    // Click on Activate
-    cy.wait(2000);
-    cy.xpath("(//button[@type='button'][normalize-space()='Activate'])[1]").click();
-    // cy.get(':nth-child(1) > .inner_wrap > .sinner_wrap > .buttons_wrap > #strategy\.strategyId > .btn').click();
-  
-    // Click on Live trade
-  
-    // cy.xpath("//a[normalize-space()='Live Trade']").click();
-  
-    // cy.get('.ng-trigger').should("be.visible");
-  
-    // Click on Broker Login
-    cy.get('.dash_left_wrap > :nth-child(2) > .common_anchor').click();
-  
-    // 1) AliceBlue
-    cy.get(":nth-child(3) > .inner_wrap > .a > .common_anchor").click();
-  
-    // User id
-    cy.get(":nth-child(1) > .form_field_wrap > :nth-child(2) > .form_field").type(
-      "1311739"
-    );
-  
-    // APi Key
-    cy.get(":nth-child(2) > .form_field_wrap > :nth-child(2) > .form_field").type(
-      "fcIoF0TybGnWzqR4auLjf6o9AtPvrltCsGoWZRSeekH3ZQomBj3bhMhLECUf8SoXL6kq38sjBvScYJm29uEegQkX38FVqrD6lm7P2yGYn1SWMMfoFztVrCR5LIzq7iov"
-    );
-  
-    cy.get("#BtnSubmit").click();
-  
-  //  cy.get(".a > .greenbg").should("be.visible");
-  
-  //   cy.get(".a > .greenbg").click();
-  
-  //  cy.wait(5000);
-  //  cy.get(".a > .greenbg").click();
-  
-  });
+  //if (cy.get(".full_wrap > :nth-child(3) > .text-danger").should("be.visible"))
+    // Click on save Button
+   // cy.get('[style="float: none;"] > .common_anchor').click();
+
+ // cy.get(".ng-trigger").should("be.visible");
+
+  // Click on Strategies
+  cy.get("#navBar > :nth-child(3) > #Strategies").click();
+
+  // Click on my Strategies
+  cy.get(
+    '.dash_left_wrap > :nth-child(2) > div.full_wrap > [routerlink="/strategies/mystrategies"]'
+  ).click();
+
+  // Click on Activate
+  cy.wait(2000);
+  cy.xpath(
+    "(//button[@type='button'][normalize-space()='Activate'])[1]"
+  ).click();
+  // cy.get(':nth-child(1) > .inner_wrap > .sinner_wrap > .buttons_wrap > #strategy\.strategyId > .btn').click();
+
+  // Click on Live trade
+
+  // cy.xpath("//a[normalize-space()='Live Trade']").click();
+
+  // cy.get('.ng-trigger').should("be.visible");
+
+  // Click on Broker Login
+  cy.get(".dash_left_wrap > :nth-child(2) > .common_anchor").click();
+
+  // 1) AliceBlue
+  cy.get(":nth-child(3) > .inner_wrap > .a > .common_anchor").click();
+
+  // User id
+  cy.get(":nth-child(1) > .form_field_wrap > :nth-child(2) > .form_field").type(
+    "1311739"
+  );
+
+  // APi Key
+  cy.get(":nth-child(2) > .form_field_wrap > :nth-child(2) > .form_field").type(
+    "fcIoF0TybGnWzqR4auLjf6o9AtPvrltCsGoWZRSeekH3ZQomBj3bhMhLECUf8SoXL6kq38sjBvScYJm29uEegQkX38FVqrD6lm7P2yGYn1SWMMfoFztVrCR5LIzq7iov"
+  );
+
+  cy.get("#BtnSubmit").click();
+
+  //cy.get(".a > .greenbg").should("be.visible");
+
+ // cy.get(".a > .greenbg").click();
+
+ // cy.wait(5000);
+ // cy.get(".a > .greenbg").click();
+});
+
   
