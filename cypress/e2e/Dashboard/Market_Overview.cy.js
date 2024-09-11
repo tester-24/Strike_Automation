@@ -277,7 +277,7 @@ describe('MarketOverview', () => {
      //cy.xpath('/html/body/app-root/app-layout/app-top-gainers-losers/div/div/div/div/div/div[2]/div/kendo-grid/div/div/div/table/thead/tr/th[4]/span/span/kendo-dropdownlist/button').click({force:true})
 
       //click on Top Losers view all (30 days %)
-      cy.xpath('/html/body/app-root/app-layout/app-top-gainers-losers/div/div/div/div/div/div[3]/div/kendo-grid/div/div/div/table/thead/tr/th[5]/span/span/kendo-dropdownlist/button').click({timeout:2000})
+      cy.xpath('/html/body/app-root/app-layout/app-top-gainers-losers/div/div/div/div/div/div[3]/div/kendo-grid/div/div/div/table/thead/tr/th[5]/span/span/kendo-dropdownlist/button').click({timeout:2000},{force:true})
 
       if (cy.get("table[class='k-grid-table k-table k-table-md']>tbody>tr").should('have.length.greaterThan', 0)) {
         cy.log('Records available')

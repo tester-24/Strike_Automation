@@ -416,12 +416,12 @@ it("Option Backtesting", () => {
       });
     };
   
-    it('should find a unique name and submit', () => {
-      cy.visit('your-page-url'); // Replace with your actual URL
+    
+      // Replace with your actual URL
   
       // Start the recursive search
       findUniqueName();
-    });
+    
 
   
   //if (cy.get(".full_wrap > :nth-child(3) > .text-danger").should("be.visible"))
