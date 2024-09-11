@@ -377,60 +377,24 @@ it("Option Backtesting", () => {
   }
 
   ///// Click on Save Strategies
+ 
+  // Initial Setup
   cy.get(".sticky_btns_wrap > :nth-child(2) > div > .ng-star-inserted").click();
-
   cy.get(".k-window-titlebar").should("be.visible");
+  //cy.get('[style="float: none;"] > .common_anchor').click();
+  cy.get('.text-start > .full_wrap > .form-control').type('user45430')
+  cy.get('[style="float: none;"] > .common_anchor').click()
 
-  cy.get('[style="float: none;"] > .common_anchor').click();
-
-  cy.get(".text-start > .full_wrap > .form-control").type("users885474");
-
-  /*
-  let basename = "Test";
-  let n = 1;
-  let nameToTest = "${basename}${n}";
-  let checkNameAndSubmit = (name) => {
-    cy.get('input[name="name"]').clear().type(name);
-    cy.get('button[type="submit"]').click();
-    
-    return cy.get(".error-message").should("not.exist");
-  };
-
-  let findUniqueName = () => {
-      checkNameAndSubmit(nameToTest).then((error) => {
-        if (error.length) {
-          // If error message exists, increment the index and check again
-          index++;
-          nameToTest = `${baseName}${index}`;
-          findUniqueName(); // Recursively check the next name
-        } else {
-          // Unique name found, verify success
-          cy.get('.success-message').should('be.visible');
-        }
-      });
-    };
-
-    // Start the process
-    findUniqueName();
-*/
-  cy.wait(2000)
-  //if (cy.get(".full_wrap > :nth-child(3) > .text-danger").should("be.visible"))
-    // Click on save Button
-    cy.get('[style="float: none;"] > .common_anchor').click();
-
- // cy.get(".ng-trigger").should("be.visible");
-
-  // Click on Strategies
-  cy.get('#navBarWeb > :nth-child(3) > #Strategies').click({force:true});
+  
+ 
 
   // Click on my Strategies
-  cy.get('.dash_left_wrap > :nth-child(2) > div.full_wrap > [routerlink="/strategies/mystrategies"]').click();
+
+  cy.get('#navBarWeb > :nth-child(3) > #Strategies').click();
 
   // Click on Activate
   cy.wait(2000);
-  cy.xpath(
-    "(//button[@type='button'][normalize-space()='Activate'])[1]"
-  ).click();
+  cy.xpath("(//button[@type='button'][normalize-space()='Activate'])[1]").click();
   // cy.get(':nth-child(1) > .inner_wrap > .sinner_wrap > .buttons_wrap > #strategy\.strategyId > .btn').click();
 
   // Click on Live trade
@@ -463,4 +427,5 @@ it("Option Backtesting", () => {
 
 //  cy.wait(5000);
 //  cy.get(".a > .greenbg").click();
+
 });

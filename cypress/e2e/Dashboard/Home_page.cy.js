@@ -109,7 +109,7 @@ describe('Tetsing different types of View Port', () => {
             console.log(`Start time: ${startTime} seconds`);
 
             cy.wait(5000)
-            cy.get('#HomeWeb').should('be.visible');
+           cy.get('#HomeWeb').should('be.visible');
            cy.get('#navBarWeb > :nth-child(2) > #Dashboard').should('be.visible');
            cy.get('#navBarWeb > :nth-child(3) > #Strategies').should('be.visible');
            cy.get('#navBarWeb > :nth-child(4) > #Marketplace').should('be.visible');
@@ -263,7 +263,7 @@ describe('Tetsing different types of View Port', () => {
             cy.get('#BtnSubmit').click();
             cy.get('#BtnSubmit').click({force:true});
             cy.get('#BtnSubmit').click({force:true});
-            cy.get('#BtnSubmit').click();
+            cy.get('#BtnSubmit').click({force:true});
 
             // Capture end time.
             const endTime = Date.now();
