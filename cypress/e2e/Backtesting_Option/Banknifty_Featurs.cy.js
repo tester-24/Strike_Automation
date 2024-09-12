@@ -41,7 +41,7 @@ it('Banknifty_Feature', () => {
 
     // 4) Entry Time
     cy.wait(1500);
-    cy.xpath("(//kendo-icon[@class='k-i-clock k-button-icon k-icon ng-star-inserted'])[2]").click();
+    cy.xpath("(//kendo-icon[@class='k-i-clock k-button-icon k-icon ng-star-inserted'])[2]").click({force:true});
 
 
     cy.xpath("(//input[@id='timepicker-1'])[1]").click();
