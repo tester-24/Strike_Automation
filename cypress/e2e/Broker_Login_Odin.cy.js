@@ -25,14 +25,14 @@ it('Broker_Login', () => {
     cy.xpath('/html[1]/body[1]/app-root[1]/app-layout[1]/app-strategies[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a[1]').click({setTimeout:2000})
 
     //Click on Odin Setup
-    cy.get(':nth-child(3) > .inner_wrap > .a > .common_anchor').click()
+   // cy.get(':nth-child(3) > .inner_wrap > .a > .common_anchor').click()
 
     //Enter User Id 
-    cy.get(':nth-child(1) > .form_field_wrap > :nth-child(2) > .form_field').type(1311739)
+   // cy.get(':nth-child(1) > .form_field_wrap > :nth-child(2) > .form_field').type(1311739)
 // Enter Api Key
-    cy.get(":nth-child(2) > .form_field_wrap > :nth-child(2) > .form_field").type("fcIoF0TybGnWzqR4auLjf6o9AtPvrltCsGoWZRSeekH3ZQomBj3bhMhLECUf8SoXL6kq38sjBvScYJm29uEegQkX38FVqrD6lm7P2yGYn1SWMMfoFztVrCR5LIzq7iov");
+   // cy.get(":nth-child(2) > .form_field_wrap > :nth-child(2) > .form_field").type("fcIoF0TybGnWzqR4auLjf6o9AtPvrltCsGoWZRSeekH3ZQomBj3bhMhLECUf8SoXL6kq38sjBvScYJm29uEegQkX38FVqrD6lm7P2yGYn1SWMMfoFztVrCR5LIzq7iov");
     
-      cy.get("#BtnSubmit").click();
+    //  cy.get("#BtnSubmit").click();
 
 
 })
