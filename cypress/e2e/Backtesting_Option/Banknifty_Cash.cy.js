@@ -382,7 +382,7 @@ it("Option Backtesting", () => {
   cy.get(".sticky_btns_wrap > :nth-child(2) > div > .ng-star-inserted").click();
   cy.get(".k-window-titlebar").should("be.visible");
   //cy.get('[style="float: none;"] > .common_anchor').click();
-  cy.get('.text-start > .full_wrap > .form-control').type('user258')
+  cy.get('.text-start > .full_wrap > .form-control').type('user852')
   cy.get('[style="float: none;"] > .common_anchor').click()
 
   
