@@ -2,6 +2,7 @@
 describe('Tetsing different types of View Port', () => {
     it('iphone-xr', () => {
         cy.viewport('iphone-xr')
+       //cy.wait('@dataLoad');
         cy.window().then(() => {
 
             // Capture start time
@@ -98,7 +99,7 @@ describe('Tetsing different types of View Port', () => {
     });
 
     it('Macbook-16', () => {
-        cy.viewport('macbook-16')
+       // cy.viewport('macbook-16')
         cy.window().then(() => {
 
             // Capture start time
@@ -190,7 +191,7 @@ describe('Tetsing different types of View Port', () => {
     });
 
     it('1800, 900', () => {
-        cy.viewport(1800, 900);
+      //  cy.viewport(1800, 900);
         cy.window().then(() => {
 
             // Capture start time
