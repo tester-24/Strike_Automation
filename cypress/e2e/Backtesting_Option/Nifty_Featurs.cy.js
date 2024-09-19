@@ -6,7 +6,7 @@ it('Nifty Feature', () => {
     cy.viewport(1750, 800);
     cy.clearAllCookies();
     cy.visit('https://strike.jainam.in/#/');
-    cy.reload();
+    //cy.reload();
     cy.wait(4000);
     cy.get('.nav-link').click()
 

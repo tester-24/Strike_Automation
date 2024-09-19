@@ -170,7 +170,7 @@ describe('Tetsing different types of View Port', () => {
 
             cy.get('#BtnSubmit').click();
             cy.get('#BtnSubmit').click({force:true});
-            cy.get('#BtnSubmit').click();
+            cy.get('#BtnSubmit').click({force:true});
             cy.get('#BtnSubmit').click();
 
             // Capture end time.
