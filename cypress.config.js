@@ -5,10 +5,10 @@ module.exports = defineConfig({
   experimentalCspAllowList: ['default-src', 'script-src', 'script-src-elem'],
   chromeWebSecurity: false,
   experimentalStudio: true,
-  waitForAnimations: false,
+  //waitForAnimations: false,
   //projectId:"zjkyuk",
   projectId: "2o1363",
-  animationDistanceThreshold: 50,
+  //animationDistanceThreshold: 50,
   reporter: 'mochawesome',
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {

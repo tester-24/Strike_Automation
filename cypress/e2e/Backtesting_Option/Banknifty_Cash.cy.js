@@ -382,7 +382,7 @@ it("Option Backtesting", () => {
   cy.get(".sticky_btns_wrap > :nth-child(2) > div > .ng-star-inserted").click();
   cy.get(".k-window-titlebar").should("be.visible");
   //cy.get('[style="float: none;"] > .common_anchor').click();
-  cy.get('.text-start > .full_wrap > .form-control').type('user258')
+  cy.get('.text-start > .full_wrap > .form-control').type('user258855')
   cy.get('[style="float: none;"] > .common_anchor').click()
 
   
@@ -407,19 +407,19 @@ it("Option Backtesting", () => {
   cy.get('.dash_left_wrap > :nth-child(2) > .common_anchor').click();
 
   // 1) AliceBlue
-  cy.get(":nth-child(3) > .inner_wrap > .a > .common_anchor").click();
+  // cy.get(":nth-child(3) > .inner_wrap > .a > .common_anchor").click();
 
-  // User id
-  cy.get(":nth-child(1) > .form_field_wrap > :nth-child(2) > .form_field").type(
-    "1311739"
-  );
+  // // User id
+  // cy.get(":nth-child(1) > .form_field_wrap > :nth-child(2) > .form_field").type(
+  //   "1311739"
+  // );
 
-  // APi Key
-  cy.get(":nth-child(2) > .form_field_wrap > :nth-child(2) > .form_field").type(
-    "fcIoF0TybGnWzqR4auLjf6o9AtPvrltCsGoWZRSeekH3ZQomBj3bhMhLECUf8SoXL6kq38sjBvScYJm29uEegQkX38FVqrD6lm7P2yGYn1SWMMfoFztVrCR5LIzq7iov"
-  );
+  // // APi Key
+  // cy.get(":nth-child(2) > .form_field_wrap > :nth-child(2) > .form_field").type(
+  //   "fcIoF0TybGnWzqR4auLjf6o9AtPvrltCsGoWZRSeekH3ZQomBj3bhMhLECUf8SoXL6kq38sjBvScYJm29uEegQkX38FVqrD6lm7P2yGYn1SWMMfoFztVrCR5LIzq7iov"
+  // );
 
-  cy.get("#BtnSubmit").click();
+  // cy.get("#BtnSubmit").click();
 
 //  cy.get(".a > .greenbg").should("be.visible");
 
