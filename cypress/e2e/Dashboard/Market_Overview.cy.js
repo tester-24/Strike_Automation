@@ -127,9 +127,9 @@ describe('MarketOverview', () => {
       cy.get('.row > :nth-child(1) > .text-gray-400').should('be.visible')
 
       //Nifty PSU Bank
-      cy.wait(500)
+      cy.wait(1000)
       cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[3]/div[1]/div/div[1]/div[1]/div/div/div/kendo-dropdownlist').click({ forec: true })
-      cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[18]/span[1]').click()
+      cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[10]/span[1]').click()
       cy.get('.heading_dropdown_wrap > .card-title > .card-label').should('be.visible')
 
       //Nift Midcap 100

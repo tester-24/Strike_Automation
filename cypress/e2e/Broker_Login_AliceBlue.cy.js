@@ -23,7 +23,7 @@ it('Broker_Login', () => {
     cy.get('#navBarWeb > :nth-child(3) > #Strategies').click({force:true})
     
     //Click on Broker Login
-    cy.wait(2000)
+    cy.wait(5000)
    cy.xpath('/html/body/app-root/app-layout/app-strategies/div/div/div/div/div/div/div[2]/div/div/div[1]/div[2]/a').click()
    // cy.xpath('/html[1]/body[1]/app-root[1]/app-layout[1]/app-strategies[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a[1]').click({setTimeout:2000})
  //  cy.get(':nth-child(2) > .common_anchor').click({force:true})

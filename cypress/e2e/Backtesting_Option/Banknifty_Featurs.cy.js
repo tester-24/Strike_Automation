@@ -146,7 +146,8 @@ it('Banknifty_Feature', () => {
 
     // select dropdown
     cy.xpath("(//span[@class='k-input-value-text'][normalize-space()='Points'])[1]").click();
-    cy.contains('Underlying Points').click();
+   //cy.contains('Underlying Points').click();
+   cy.xpath('/html/body/app-root/app-layout/app-option-structure/div[2]/div/div/div/div/div[2]/div/div/div/form[2]/div[5]/div/div/div/div/div[4]/div[1]/div/div/div/div[1]/div/kendo-dropdownlist/span/span').click()
 
     // Enter Target
     cy.get('.is_new_leg > :nth-child(1) > .form_item_wrap > :nth-child(2) > .d-flex > .border-0 > .form-control').clear();
