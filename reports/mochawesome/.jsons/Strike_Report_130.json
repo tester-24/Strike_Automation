@@ -1,0 +1,174 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-09-23T11:01:08.465Z",
+    "end": "2024-09-23T11:02:52.960Z",
+    "duration": 104495,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8f503e84-2268-4c84-9c68-3940178c8e74",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Dashboard\\Market_Overview.cy.js",
+      "file": "cypress\\e2e\\Dashboard\\Market_Overview.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3731b658-ce35-4325-9d79-58a93b41f23d",
+          "title": "MarketOverview",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "All DropDowns",
+              "fullTitle": "MarketOverview All DropDowns",
+              "timedOut": null,
+              "duration": 49726,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport(1800, 1000);\n//Calculate the Time   \ncy.window().then(() => {\n  // Capture start time\n  cy.visit('https://strike.jainam.in');\n  cy.wait(3000);\n  Cypress.on('uncaught:exception', err => {\n    // returning false here prevents Cypress from\n    // failing the test\n    console.log('Cypress detected uncaught exception: ', err);\n    return false;\n  });\n  cy.wait(5000);\n  cy.get('#navBarWeb > :nth-child(2) > #Dashboard').should('be.visible');\n  const startTime = Date.now();\n  cy.get('#navBarWeb > :nth-child(2) > #Dashboard').click();\n  //Dropdown should be visible\n  cy.wait(2000);\n  // cy.xpath('/html[1]/body[1]/app-root[1]/app-layout[1]/app-dashboard[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h3[1]/kendo-dropdownlist[1]/button[1]').should('be.visible')\n  const endTime = Date.now();\n  console.log(`End time: ${endTime} seconds`);\n  const loadTime = endTime - startTime; // Calculate load time\n  console.log(`Home page load time: ${loadTime} seconds`);\n  cy.log(`Page load time: ${endTime - startTime} seconds`);\n  // Optionally, log a warning if load time exceeds a threshold\n  if (loadTime > 2) {\n    // Adjust threshold as needed (2 seconds in this example)\n    console.warn(`Market  Page  load time exceeded threshold! (${loadTime}s)`);\n  }\n  // Scroll to up\n  // cy.scrollTo('top')\n  //Click on Nifty 50 dropdown\n  cy.wait(7000);\n  //cy.get('#k-dbfa3b6b-7825-47b7-aea5-129bead48651 > .k-input-button').click({force:true})\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div[1]/div/div[1]/div/h3[1]/kendo-dropdownlist/button').click({\n    force: true\n  });\n  //Select Nifty Mid Cap 100\n  cy.wait(2000);\n  cy.xpath('/html/body/app-root/kendo-popup/div/kendo-list/div/ul/li[5]/span').click({\n    force: true\n  });\n  // cy.get(':nth-child(1) > .card > .card-header > .flexy > .mlauto > .card-label').should('be.visible')\n  //Click on Nifty 50 dropdown\n  cy.wait(500);\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div[1]/div/div[1]/div/h3[1]/kendo-dropdownlist/button').click();\n  // Select Nifty Small Cap 100\n  cy.wait(500);\n  cy.xpath('/html/body/app-root/kendo-popup/div/kendo-list/div/ul/li[8]/span').click();\n  //cy.get(':nth-child(1) > .card > .card-header > .flexy > .mr-0 > .card-label').should('be.visible')\n  //Click on Nifty 50 dropdown\n  cy.wait(1000);\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div[1]/div/div[1]/div/h3[1]/kendo-dropdownlist/button').click();\n  // Select Mid Cap 50\n  cy.wait(500);\n  cy.xpath('/html/body/app-root/kendo-popup/div/kendo-list/div/ul/li[6]/span').click();\n  //cy.get(':nth-child(1) > .card > .card-body > .legends_wrap > :nth-child(2) > :nth-child(2)').should('be.visible')\n  //Click on Nifty 50 dropdown\n  cy.wait(1000);\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div[1]/div/div[1]/div/h3[1]/kendo-dropdownlist/button').click();\n  // Select Nifty Energy\n  cy.wait(500);\n  cy.xpath('/html/body/app-root/kendo-popup/div/kendo-list/div/ul/li[11]/span').click();\n  // cy.get('.col-xxl-12 > .g-5 > :nth-child(1) > .card > .card-body').should('be.visible')\n  cy.scrollTo(1000, 0);\n  //Click on BSE SENSEX dropdown\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div[2]/div/div[1]/div/h3[1]/kendo-dropdownlist/button').should('be.visible');\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div[2]/div/div[1]/div/h3[1]/kendo-dropdownlist/button').click();\n  cy.scrollTo(1000, 0);\n  //Select BSE Consumer Durable \n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div[2]/div/div[1]/div/h3[1]/kendo-dropdownlist/span/span').should('be.visible');\n  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[9]/span').click();\n  // cy.get(':nth-child(2) > .card > .card-body > .legends_wrap > :nth-child(1)').should('be.visible')\n  cy.scrollTo(1000, 0);\n  //select BSE SMALL CAP\n  cy.wait(1000);\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div[2]/div/div[1]/div/h3[1]/kendo-dropdownlist/button').click({\n    force: true\n  });\n  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[5]/span[1]').should('be.visible');\n  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[5]/span[1]').click();\n  cy.get(':nth-child(2) > .card > .card-header > .flexy > .mlauto > .card-label').should('be.visible');\n  cy.scrollTo(1000, 0);\n  //select ChartDropdown\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div[1]/div[1]/h3[1]/kendo-dropdownlist/button').should('be.visible');\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div[1]/div[1]/h3[1]/kendo-dropdownlist/button').click();\n  // select NiftyMid Cap 100\n  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[6]/span[1]').should('be.visible');\n  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[6]/span[1]').click();\n  cy.scrollTo(1000, 0);\n  //select option through typing\n  cy.wait(500);\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div[1]/div[1]/h3[1]/kendo-dropdownlist/button').click({\n    force: true\n  });\n  //selcting nifty financial services\n  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/div[1]/span[1]/input[1]').type('Nifty Financial Services').type(\"{enter}\");\n  cy.wait(500);\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div[1]/div[1]/h3[1]/kendo-dropdownlist/button').click({\n    force: true\n  });\n  //select NiftyMidcap 50\n  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/div[1]/span[1]/input[1]').type('Nifty Midcap 50').type(\"{enter}\");\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div[1]/div[1]/h3[1]/kendo-dropdownlist/button').click({\n    force: true\n  });\n  //select Nifty FMCG\n  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/div[1]/span[1]/input[1]').type('Nifty FMCG').type(\"{enter}\");\n  //Select Heatmap Dropdown \n  cy.get('.heading_dropdown_wrap > .card-title > .card-label').should('be.visible');\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[3]/div[1]/div/div[1]/div[1]/div/div/div/kendo-dropdownlist').should('be.visible');\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[3]/div[1]/div/div[1]/div[1]/div/div/div/kendo-dropdownlist').click();\n  // Nifty Midcap 100\n  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[5]/span[1]').click();\n  cy.get('.row > :nth-child(1) > .text-gray-400').should('be.visible');\n  //Nifty PSU Bank\n  cy.wait(1000);\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[3]/div[1]/div/div[1]/div[1]/div/div/div/kendo-dropdownlist').click({\n    forec: true\n  });\n  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[10]/span[1]').click();\n  cy.get('.heading_dropdown_wrap > .card-title > .card-label').should('be.visible');\n  //Nift Midcap 100\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[3]/div[1]/div/div[1]/div[1]/div/div/div/kendo-dropdownlist').click();\n  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[5]/span[1]').click();\n  cy.get('.heading_dropdown_wrap > .card-title > .card-label').should('be.visible');\n  // Top gainers dropdown\n  cy.xpath('/html[1]/body[1]/app-root[1]/app-layout[1]/app-dashboard[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/app-dashboard-charts[1]/div[1]/div[2]/div[1]/div[1]/div[1]/kendo-dropdownlist[1]').should('be.visible');\n  cy.xpath('/html[1]/body[1]/app-root[1]/app-layout[1]/app-dashboard[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/app-dashboard-charts[1]/div[1]/div[2]/div[1]/div[1]/div[1]/kendo-dropdownlist[1]').click({\n    force: true\n  });\n  //select nifty mid cap 100\n  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[5]/span[1]').click({\n    force: true\n  });\n  cy.get('.col-xxl-4.pos_relative > app-dashboard-charts > .card > .card-body').should('be.visible');\n  cy.scrollTo('center');\n  // nifty metal\n  cy.xpath('/html[1]/body[1]/app-root[1]/app-layout[1]/app-dashboard[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/app-dashboard-charts[1]/div[1]/div[2]/div[1]/div[1]/div[1]/kendo-dropdownlist[1]').click({\n    force: true\n  });\n  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[16]/span[1]').click({\n    force: true\n  });\n  cy.get('.col-xxl-4.pos_relative > app-dashboard-charts > .card > .card-body > .flexspbn').should('be.visible');\n  // Nifty Reality\n  cy.xpath('/html[1]/body[1]/app-root[1]/app-layout[1]/app-dashboard[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/app-dashboard-charts[1]/div[1]/div[2]/div[1]/div[1]/div[1]/kendo-dropdownlist[1]').click({\n    force: true\n  });\n  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[15]/span[1]').click({\n    force: true\n  });\n  cy.get('.col-xxl-4.pos_relative > app-dashboard-charts > .card > .card-body').should('be.visible');\n  //Top Losers dropdown\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[2]/div/app-dashboard-charts/div/div[2]/div[1]/div/div/kendo-dropdownlist').should('be.visible');\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[2]/div/app-dashboard-charts/div/div[2]/div[1]/div/div/kendo-dropdownlist').click();\n  //select nifty auto\n  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[10]/span[1]').click();\n  cy.get(':nth-child(2) > .pos_relative > app-dashboard-charts > .card > .card-body').should('be.visible');\n  // select nifty media\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[2]/div/app-dashboard-charts/div/div[2]/div[1]/div/div/kendo-dropdownlist').click();\n  // cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[15]/span[1]').should('be.visible')\n  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[15]/span[1]').click({\n    force: true\n  });\n  //select nifty It\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[2]/div/app-dashboard-charts/div/div[2]/div[1]/div/div/kendo-dropdownlist').click();\n  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[14]').click({\n    force: true\n  });\n  //cy.scrollTo(0,500);\n  // 52 Week High dropdown\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[4]/div/app-dashboard-charts/div/div[2]/div[1]/div/div/kendo-dropdownlist').should('be.visible');\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[4]/div/app-dashboard-charts/div/div[2]/div[1]/div/div/kendo-dropdownlist').click();\n  //cy.scrollTo(0,500)\n  //select Nifty small cap 100\n  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[8]/span[1]').should('be.visible');\n  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[8]/span[1]').click();\n  // Select Nifty Auto\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[4]/div/app-dashboard-charts/div/div[2]/div[1]/div/div/kendo-dropdownlist').click();\n  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[10]/span[1]').click();\n  //52 week low dropdown\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[5]/div/app-dashboard-charts/div/div[2]/div[1]/div/div/kendo-dropdownlist').should('be.visible');\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[5]/div/app-dashboard-charts/div/div[2]/div[1]/div/div/kendo-dropdownlist').click();\n  //select nifty next 50\n  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[7]/span[1]').click();\n  //select nifty it\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[5]/div/app-dashboard-charts/div/div[2]/div[1]/div/div/kendo-dropdownlist').click();\n  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[14]').click({\n    force: true\n  });\n});",
+              "err": {},
+              "uuid": "13d50859-f861-4745-a18f-f9239ecd3aea",
+              "parentUUID": "3731b658-ce35-4325-9d79-58a93b41f23d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "View all buttons",
+              "fullTitle": "MarketOverview View all buttons",
+              "timedOut": null,
+              "duration": 24576,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport(1800, 1000);\n//Calculate the Time   \ncy.window().then(() => {\n  // Capture start time\n  cy.visit('https://strike.jainam.in/Market-Overview');\n  cy.wait(3000);\n  Cypress.on('uncaught:exception', err => {\n    // returning false here prevents Cypress from\n    // failing the test\n    console.log('Cypress detected uncaught exception: ', err);\n    return false;\n  });\n  cy.wait(3000);\n  // cy.get('#navBar > :nth-child(2) > #Dashboard').should('be.visible')\n  const startTime = Date.now();\n  // cy.get('#navBar > :nth-child(2) > #Dashboard').click()\n  //Dropdown should be visible\n  cy.wait(2000);\n  // cy.xpath('/html[1]/body[1]/app-root[1]/app-layout[1]/app-dashboard[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h3[1]/kendo-dropdownlist[1]/button[1]').should('be.visible')\n  const endTime = Date.now();\n  console.log(`End time: ${endTime} seconds`);\n  const loadTime = endTime - startTime; // Calculate load time\n  console.log(`Home page load time: ${loadTime} seconds`);\n  cy.log(`Page load time: ${endTime - startTime} seconds`);\n  // Optionally, log a warning if load time exceeds a threshold\n  if (loadTime > 2) {\n    // Adjust threshold as needed (2 seconds in this example)\n    console.warn(`Market  Page  load time exceeded threshold! (${loadTime}s)`);\n  }\n  // click on View all FII DII activity\n  cy.wait(1000);\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div[3]/div/div[2]/div/a').click({\n    setTimeout: 1000\n  });\n  cy.wait(3000);\n  // cy.xpath('/html/body/app-root/app-layout/app-fii-dii-page/div/div/div/div/div/div/div/div/div/div/div[1]/div/h3/span').should('be.visible')\n  cy.go('back');\n  cy.wait(1000);\n  //cy.scrollTo('top')\n  // Click on Top gainers view all(7 day%)\n  cy.wait(3000);\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[1]/app-dashboard-charts/div/div[2]/div[1]/a').click({\n    force: true\n  });\n  //cy.get('.col-xxl-4.pos_relative > app-dashboard-charts > .card > .card-body > .flexspbn > a').click({ force: true },{timeout:500})\n  if (cy.get(\"table[class='k-grid-table k-table k-table-md']>tbody>tr\") > 0) {\n    cy.log('Records available');\n  }\n  cy.xpath('/html/body/app-root/app-layout/app-top-gainers-losers/div/div/div/div/div/div[3]/div/kendo-grid/div/div/div/table/thead/tr/th[4]/span/span/kendo-dropdownlist/button/kendo-icon-wrapper/kendo-icon').click({\n    force: true\n  });\n  // select (30 days %)\n  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[2]/span[1]').click({\n    force: true\n  }, {\n    timeout: 1000\n  });\n  if (cy.get(\"table[class='k-grid-table k-table k-table-md']>tbody>tr\").should('have.length.greaterThan', 0)) {\n    cy.log('Records available');\n  }\n  // //click on Top gainers view all (30 days %)\n  cy.xpath('/html/body/app-root/app-layout/app-top-gainers-losers/div/div/div/div/div/div[3]/div/kendo-grid/div/div/div/table/thead/tr/th[5]/span/span/kendo-dropdownlist').click({\n    force: true\n  }, {\n    timeout: 500\n  });\n  //select (7 days %)\n  cy.xpath('/html[1]/body[1]/app-root[1]/kendo-popup[1]/div[1]/kendo-list[1]/div[1]/ul[1]/li[1]').click({\n    force: true\n  }, {\n    timeout: 500\n  });\n  if (cy.get(\"table[class='k-grid-table k-table k-table-md']>tbody>tr\") >= 0) {\n    cy.log('Records available');\n  }\n  cy.go('back');\n  // //   //click on  Top Losers view all (7 day%)\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[2]/div/app-dashboard-charts/div/div[2]/div[1]/a').click({\n    force: true\n  });\n  // cy.get(':nth-child(2) > .pos_relative > app-dashboard-charts > .card > .card-body > .flexspbn > a').click()\n  if (cy.get(\"table[class='k-grid-table k-table k-table-md']>tbody>tr\").should('have.length.greaterThan', 0)) {\n    cy.log('Records available');\n  }\n  cy.wait(1000);\n  //cy.xpath('/html/body/app-root/app-layout/app-top-gainers-losers/div/div/div/div/div/div[2]/div/kendo-grid/div/div/div/table/thead/tr/th[4]/span/span/kendo-dropdownlist/button').click({force:true})\n  //click on Top Losers view all (30 days %)\n  cy.xpath('/html/body/app-root/app-layout/app-top-gainers-losers/div/div/div/div/div/div[3]/div/kendo-grid/div/div/div/table/thead/tr/th[5]/span/span/kendo-dropdownlist/button').click({\n    timeout: 2000\n  }, {\n    force: true\n  });\n  if (cy.get(\"table[class='k-grid-table k-table k-table-md']>tbody>tr\").should('have.length.greaterThan', 0)) {\n    cy.log('Records available');\n  }\n  //click top losers view all on (30 days %)\n  cy.wait(1000);\n  cy.xpath('/html/body/app-root/app-layout/app-top-gainers-losers/div/div/div/div/div/div[3]/div/kendo-grid/div/div/div/table/thead/tr/th[5]/span/span/kendo-dropdownlist/button').click({\n    force: true\n  });\n  //select (7 days %)\n  cy.xpath('/html/body/app-root/app-layout/app-top-gainers-losers/div/div/div/div/div/div[3]/div/kendo-grid/div/div/div/table/thead/tr/th[5]/span/span/kendo-dropdownlist/button').click();\n  if (cy.get(\"table[class='k-grid-table k-table k-table-md']>tbody>tr\").should('have.length.greaterThan', 0)) {\n    cy.log('Records available');\n  }\n  cy.go('back');\n  // //click on 52 Week high view all\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[4]/div/app-dashboard-charts/div/div[2]/div[1]/a').click({\n    force: true\n  });\n  cy.wait(1000);\n  //cy.get(':nth-child(4) > :nth-child(4) > .pos_relative > app-dashboard-charts > .card > .card-body > .flexspbn > a').click()\n  if (cy.get(\"table[class='k-grid-table k-table k-table-md']>tbody>tr\").should('have.length.greaterThan', 0)) {\n    cy.log('Records available');\n  }\n  cy.go('back');\n  // click on 52 week low\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[2]/div/app-dashboard-charts/div/div[2]/div[1]/a').click({\n    force: true\n  }, {\n    timeout: 1000\n  });\n  //cy.get(':nth-child(5) > .pos_relative > app-dashboard-charts > .card > .card-body > .flexspbn > a').click()\n  //cy.wait(3000)\n  if (cy.get(\"table[class='k-grid-table k-table k-table-md']>tbody>tr\").should('have.length.greaterThan', 0)) {\n    cy.log('Records available');\n  }\n  cy.go('back');\n});",
+              "err": {},
+              "uuid": "56cf444a-5753-46e5-81fd-0bacc6f0562c",
+              "parentUUID": "3731b658-ce35-4325-9d79-58a93b41f23d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Click on Calender",
+              "fullTitle": "MarketOverview Click on Calender",
+              "timedOut": null,
+              "duration": 15963,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport(1800, 1000);\n//Calculate the Time   \ncy.window().then(() => {\n  // Capture start time\n  cy.visit('https://strike.jainam.in/Market-Overview');\n  cy.wait(3000);\n  Cypress.on('uncaught:exception', err => {\n    // returning false here prevents Cypress from\n    // failing the test\n    console.log('Cypress detected uncaught exception: ', err);\n    return false;\n  });\n  cy.wait(2000);\n  cy.get('#navBarWeb > :nth-child(2) > #Dashboard').should('be.visible');\n  const startTime = Date.now();\n  cy.get('#navBarWeb > :nth-child(2) > #Dashboard').click();\n  //Dropdown should be visible\n  cy.wait(2000);\n  // cy.xpath('/html[1]/body[1]/app-root[1]/app-layout[1]/app-dashboard[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h3[1]/kendo-dropdownlist[1]/button[1]').should('be.visible')\n  const endTime = Date.now();\n  console.log(`End time: ${endTime} seconds`);\n  const loadTime = endTime - startTime; // Calculate load time\n  console.log(`Home page load time: ${loadTime} seconds`);\n  cy.log(`Page load time: ${endTime - startTime} seconds`);\n  // Optionally, log a warning if load time exceeds a threshold\n  if (loadTime > 2) {\n    // Adjust threshold as needed (2 seconds in this example)\n    console.warn(`Market  Page  load time exceeded threshold! (${loadTime}s)`);\n  }\n  // Scroll to up\n  cy.scrollTo('top');\n  // click on Result calender\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[6]/div/div/a').click({\n    setTimeout: 1000\n  });\n  // cy.wait(1000)\n  //check data is visible or not\n  if (cy.xpath(\"table[class='k-grid-table k-table k-table-md']>tbody>tr\") > 0) {\n    cy.log('records available');\n  } else {\n    cy.log('No records available');\n    cy.wait(1000);\n    // cy.xpath('/html/body/app-root/app-layout/app-corporate-action-page/div/div/div/div/div/div[2]/div/div/div/kendo-grid/div/kendo-grid-list/div/div[1]/table/tbody/tr/td').should('be.visible')\n  }\n  //Click on Dividends\n  cy.wait(1000);\n  cy.xpath('/html/body/app-root/app-layout/app-corporate-action-page/div/div/div/div/div/div[2]/h3/ul/li[2]/a').click({\n    force: true\n  });\n  if (cy.xpath(\"table[class='k-grid-table k-table k-table-md']>tbody>tr\") > 0) {\n    cy.log('records available');\n  } else {\n    cy.log('No records available');\n    // cy.xpath('/html/body/app-root/app-layout/app-corporate-action-page/div/div/div/div/div/div[2]/div/div/div/kendo-grid/div/kendo-grid-list/div/div[1]/table/tbody/tr/td').should('be.visible')\n  }\n  //Click on  Right Issue\n  cy.wait(1000);\n  cy.xpath('/html/body/app-root/app-layout/app-corporate-action-page/div/div/div/div/div/div[2]/h3/ul/li[3]/a').click();\n  if (cy.xpath(\"table[class='k-grid-table k-table k-table-md']>tbody>tr\") > 0) {\n    cy.log('records available');\n  } else {\n    cy.log('No records available');\n    // cy.xpath('/html/body/app-root/app-layout/app-corporate-action-page/div/div/div/div/div/div[2]/div/div/div/kendo-grid/div/kendo-grid-list/div/div[1]/table/tbody/tr/td').should('be.visible')\n  }\n  cy.go('back');\n  cy.scrollTo('top');\n});",
+              "err": {},
+              "uuid": "232401fd-c684-4a77-a220-91118afbc400",
+              "parentUUID": "3731b658-ce35-4325-9d79-58a93b41f23d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Recent News",
+              "fullTitle": "MarketOverview Recent News",
+              "timedOut": null,
+              "duration": 12136,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport(1800, 1000);\n//Calculate the Time   \ncy.window().then(() => {\n  // Capture start time\n  cy.visit('https://strike.jainam.in/Market-Overview');\n  cy.wait(3000);\n  Cypress.on('uncaught:exception', err => {\n    // returning false here prevents Cypress from\n    // failing the test\n    console.log('Cypress detected uncaught exception: ', err);\n    return false;\n  });\n  cy.wait(5000);\n  cy.get('#navBarWeb > :nth-child(2) > #Dashboard').should('be.visible');\n  const startTime = Date.now();\n  cy.get('#navBarWeb > :nth-child(2) > #Dashboard').click();\n  //Dropdown should be visible\n  cy.wait(2000);\n  // cy.xpath('/html[1]/body[1]/app-root[1]/app-layout[1]/app-dashboard[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h3[1]/kendo-dropdownlist[1]/button[1]').should('be.visible')\n  const endTime = Date.now();\n  console.log(`End time: ${endTime} seconds`);\n  const loadTime = endTime - startTime; // Calculate load time\n  console.log(`Home page load time: ${loadTime} seconds`);\n  cy.log(`Page load time: ${endTime - startTime} seconds`);\n  // Optionally, log a warning if load time exceeds a threshold\n  if (loadTime > 2) {\n    // Adjust threshold as needed (2 seconds in this example)\n    console.warn(`Market  Page  load time exceeded threshold! (${loadTime}s)`);\n  }\n  // Scroll to up\n  // click on Recent News\n  cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[4]/div[7]/div/div/div[2]/a').click();\n  //cy.wait(1000)\n  cy.go(-1);\n});",
+              "err": {},
+              "uuid": "0efd24be-74dc-4d26-a843-e686eff2a626",
+              "parentUUID": "3731b658-ce35-4325-9d79-58a93b41f23d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "13d50859-f861-4745-a18f-f9239ecd3aea",
+            "56cf444a-5753-46e5-81fd-0bacc6f0562c",
+            "232401fd-c684-4a77-a220-91118afbc400",
+            "0efd24be-74dc-4d26-a843-e686eff2a626"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 102401,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "Strike_Report",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports\\mochawesome\\.jsons",
+        "reporterEnabled": "cypress-mochawesome-reporter, mocha-junit-reporter",
+        "charts": true,
+        "reportPageTitle": "Strike_Automation",
+        "reportFilename": "Strike_Report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "video": true,
+        "videoCompression": true,
+        "videoOnFailOnly": true,
+        "quiet": true,
+        "debug": true,
+        "saveJson": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
