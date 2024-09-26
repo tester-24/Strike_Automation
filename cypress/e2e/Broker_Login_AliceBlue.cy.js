@@ -44,6 +44,7 @@ it('Broker_Login', () => {
      
       //Click on Login
       cy.get('.ng-trigger').click()
+      cy.wait(2000)
      // cy.xpath('/html/body/div/div/div/div').should('be.visible')
     // cy.get('.ng-trigger').should('be.visible')
 

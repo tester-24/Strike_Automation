@@ -33,7 +33,7 @@ it('Broker_Login', () => {
     cy.xpath('/html/body/app-root/app-layout/app-broker-dynamic/ngx-dynamic-hooks/app-odin/div/div/div/div/div/div/div[2]/div/div/div/div/form/fieldset/div/div[1]/kendo-formfield/div/kendo-textbox/input').type('j23')
   
    // Enter Password
-  cy.xpath('/html/body/app-root/app-layout/app-broker-dynamic/ngx-dynamic-hooks/app-odin/div/div/div/div/div/div/div[2]/div/div/div/div/form/fieldset/div/div[2]/kendo-formfield/div/div/kendo-textbox/input').type('MLP45')
+  cy.xpath('/html/body/app-root/app-layout/app-broker-dynamic/ngx-dynamic-hooks/app-odin/div/div/div/div/div/div/div[2]/div/div/div/div/form/fieldset/div/div[2]/kendo-formfield/div/div/kendo-textbox/input').type('Strike@123')
     //  Enter FA
     cy.xpath('/html/body/app-root/app-layout/app-broker-dynamic/ngx-dynamic-hooks/app-odin/div/div/div/div/div/div/div[2]/div/div/div/div/form/fieldset/div/div[3]/kendo-formfield/div/kendo-textbox/input').type('AFLPP2068K')
     //Click on Submit Button

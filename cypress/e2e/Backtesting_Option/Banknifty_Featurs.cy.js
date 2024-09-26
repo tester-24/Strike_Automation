@@ -44,7 +44,7 @@ it('Banknifty_Feature', () => {
     cy.xpath("(//kendo-icon[@class='k-i-clock k-button-icon k-icon ng-star-inserted'])[2]").click({force:true});
 
 
-    cy.xpath("(//input[@id='timepicker-1'])[1]").click();
+    cy.xpath("(//input[@id='timepicker-1'])[1]").click({force:true});
     cy.xpath("(//input[@id='timepicker-1'])[1]").should('be.visible').type("09.10");
     cy.scrollTo(1000, 0);
     cy.get('div.ng-star-inserted > .text-danger').should('be.visible')
