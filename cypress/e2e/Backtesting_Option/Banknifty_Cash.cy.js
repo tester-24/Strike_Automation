@@ -60,7 +60,7 @@ it("Option Backtesting", () => {
   cy.xpath("//a[normalize-space()='Save']").click({ force: true });
   cy.scrollTo(1000, 0);
 
-  cy.xpath("(//input[@id='timepicker-1'])[1]").click();
+  cy.xpath("(//input[@id='timepicker-1'])[1]").click({force:true});
   cy.xpath("(//input[@id='timepicker-1'])[1]")
     .should("be.visible")
     .type("09.05");
@@ -382,7 +382,7 @@ it("Option Backtesting", () => {
   cy.get(".sticky_btns_wrap > :nth-child(2) > div > .ng-star-inserted").click();
   cy.get(".k-window-titlebar").should("be.visible");
   //cy.get('[style="float: none;"] > .common_anchor').click();
-  cy.get('.text-start > .full_wrap > .form-control').type('user258871')
+  cy.get('.text-start > .full_wrap > .form-control').type('user258874')
   cy.get('[style="float: none;"] > .common_anchor').click()
 
   
