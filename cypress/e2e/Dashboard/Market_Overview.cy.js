@@ -2,7 +2,7 @@
 
 describe('MarketOverview', () => {
 
-  it('All DropDowns', () => {
+  it.only('All DropDowns', () => {
     cy.viewport(1800, 1000)
     //Calculate the Time   
     cy.window().then(() => {
@@ -40,7 +40,7 @@ describe('MarketOverview', () => {
 
 
       //Click on Nifty 50 dropdown
-      cy.wait(7000)
+      cy.wait(3000)
       //cy.get('#k-dbfa3b6b-7825-47b7-aea5-129bead48651 > .k-input-button').click({force:true})
       cy.xpath('/html/body/app-root/app-layout/app-dashboard/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div[1]/div/div[1]/div/h3[1]/kendo-dropdownlist/button').click({force:true})
 

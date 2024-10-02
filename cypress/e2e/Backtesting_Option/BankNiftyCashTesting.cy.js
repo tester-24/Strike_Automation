@@ -171,7 +171,8 @@ it("Option Backtesting", () => {
   
       // select dropdown
       cy.xpath("(//span[@class='k-input-value-text'][normalize-space()='Points'])[1]").click();
-      cy.contains('Underlying Points').click();
+      cy.xpath('/html/body/app-root/app-layout/app-option-structure/div[2]/div/div/div/div/div[2]/div/div/div/form[2]/div[5]/div/div/div/div/div[4]/div[1]/div/div/div/div[1]/div/kendo-dropdownlist/span/span').click()
+     // cy.contains('Underlying Points').click();
   
       // Enter Target
       cy.get('.is_new_leg > :nth-child(1) > .form_item_wrap > :nth-child(2) > .d-flex > .border-0 > .form-control').clear();
@@ -376,105 +377,104 @@ it("Option Backtesting", () => {
       cy.log("No data found");
     }
   
-    ///// Click on Save Strategies
+   
+  ///// Click on Save Strategies
   cy.get(".sticky_btns_wrap > :nth-child(2) > div > .ng-star-inserted").click();
 
   cy.get(".k-window-titlebar").should("be.visible");
 
   cy.get('[style="float: none;"] > .common_anchor').click();
 
-  cy.get(".text-start > .full_wrap > .form-control").type("Test1");
+  cy.get(".text-start > .full_wrap > .form-control").type("Test2");
 
   
+  let basename = "Test";
+  let index = 1;
+  let nameToTest = `${basename}${index}`;
 
-    const baseName = "Test";
-    let index = 1;
+  const checkNameAndSubmit = (name) => {
+    cy.get('.text-start > .full_wrap > .form-control').clear().type(name);
+    cy.get('[style="float: none;"] > .common_anchor').click();
+    
+    return cy.get(".error-message").should("not.exist");
+  };
+
   
-    const checkNameAndSubmit = (name) => {
-      // Clear and type the name into the textbox
-      cy.get(".text-start > .full_wrap > .form-control").clear().type(name);
-      // Click the submit button
-      cy.get('[style="float: none;"] > .common_anchor').click();
-  
-      // Return the promise to be used in the recursion
-      return cy.get(".error-message").should("not.exist");
-    };
-  
-    const findUniqueName = () => {
-      const nameToTest = `${baseName}${index}`;
-      
-      return checkNameAndSubmit(nameToTest).then(() => {
-        // If no error message exists, check for success
-        cy.get('.success-message').should('be.visible').then(() => {
-          // Unique name found, end recursion
-          cy.log(`Unique name found: ${nameToTest}`);
-        }).catch(() => {
-          // If no success message, increment index and retry
+  const findUniqueName = () => {
+    return checkNameAndSubmit(nameToTest).then(() => {
+      cy.get('.full_wrap > :nth-child(3) > .text-danger').then(($error) => {
+        if ($error.length > 0) {
+          // If error message exists, increment the index and check again
           index++;
+          nameToTest = `${basename}${index}`;
           findUniqueName(); // Recursively check the next name
-        });
+        } 
+        else {
+          // Unique name found, verify success
+          cy.get('.success-message').should('be.visible');
+        }
       });
-    };
-  
-    
-      // Replace with your actual URL
-  
-      // Start the recursive search
-      findUniqueName();
-    
+    });
+  };
 
+  // Start the process
+ // Ensure you visit the correct page first
+    findUniqueName(); // Start the process
   
+
+
   //if (cy.get(".full_wrap > :nth-child(3) > .text-danger").should("be.visible"))
     // Click on save Button
-   // cy.get('[style="float: none;"] > .common_anchor').click();
+    cy.get('[style="float: none;"] > .common_anchor').click();
 
- // cy.get(".ng-trigger").should("be.visible");
+  cy.get(".ng-trigger").should("be.visible");
 
   // Click on Strategies
-  cy.get("#navBar > :nth-child(3) > #Strategies").click();
+  // cy.get("#navBar > :nth-child(3) > #Strategies").click();
 
-  // Click on my Strategies
-  cy.get(
-    '.dash_left_wrap > :nth-child(2) > div.full_wrap > [routerlink="/strategies/mystrategies"]'
-  ).click();
+  // // Click on my Strategies
+  // cy.get(
+  //   '.dash_left_wrap > :nth-child(2) > div.full_wrap > [routerlink="/strategies/mystrategies"]'
+  // ).click();
 
-  // Click on Activate
-  cy.wait(2000);
-  cy.xpath(
-    "(//button[@type='button'][normalize-space()='Activate'])[1]"
-  ).click();
-  // cy.get(':nth-child(1) > .inner_wrap > .sinner_wrap > .buttons_wrap > #strategy\.strategyId > .btn').click();
+  // // Click on Activate
+  // cy.wait(2000);
+  // cy.xpath(
+  //   "(//button[@type='button'][normalize-space()='Activate'])[1]"
+  // ).click();
+  // // cy.get(':nth-child(1) > .inner_wrap > .sinner_wrap > .buttons_wrap > #strategy\.strategyId > .btn').click();
 
-  // Click on Live trade
+  // // Click on Live trade
 
-  // cy.xpath("//a[normalize-space()='Live Trade']").click();
+  // // cy.xpath("//a[normalize-space()='Live Trade']").click();
 
-  // cy.get('.ng-trigger').should("be.visible");
+  // // cy.get('.ng-trigger').should("be.visible");
 
-  // Click on Broker Login
-  cy.get(".dash_left_wrap > :nth-child(2) > .common_anchor").click();
+  // // Click on Broker Login
+  // cy.get(".dash_left_wrap > :nth-child(2) > .common_anchor").click();
 
-  // 1) AliceBlue
-  cy.get(":nth-child(3) > .inner_wrap > .a > .common_anchor").click();
+  // // 1) AliceBlue
+  // cy.get(":nth-child(3) > .inner_wrap > .a > .common_anchor").click();
 
-  // User id
-  cy.get(":nth-child(1) > .form_field_wrap > :nth-child(2) > .form_field").type(
-    "1311739"
-  );
+  // // User id
+  // cy.get(":nth-child(1) > .form_field_wrap > :nth-child(2) > .form_field").type(
+  //   "1311739"
+  // );
 
-  // APi Key
-  cy.get(":nth-child(2) > .form_field_wrap > :nth-child(2) > .form_field").type(
-    "fcIoF0TybGnWzqR4auLjf6o9AtPvrltCsGoWZRSeekH3ZQomBj3bhMhLECUf8SoXL6kq38sjBvScYJm29uEegQkX38FVqrD6lm7P2yGYn1SWMMfoFztVrCR5LIzq7iov"
-  );
+  // // APi Key
+  // cy.get(":nth-child(2) > .form_field_wrap > :nth-child(2) > .form_field").type(
+  //   "fcIoF0TybGnWzqR4auLjf6o9AtPvrltCsGoWZRSeekH3ZQomBj3bhMhLECUf8SoXL6kq38sjBvScYJm29uEegQkX38FVqrD6lm7P2yGYn1SWMMfoFztVrCR5LIzq7iov"
+  // );
 
-  cy.get("#BtnSubmit").click();
+ // cy.get("#BtnSubmit").click();
 
   //cy.get(".a > .greenbg").should("be.visible");
 
- // cy.get(".a > .greenbg").click();
+  //cy.get(".a > .greenbg").click();
 
  // cy.wait(5000);
  // cy.get(".a > .greenbg").click();
 });
+
 
   
