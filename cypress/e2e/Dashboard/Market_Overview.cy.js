@@ -2,7 +2,7 @@
 
 describe('MarketOverview', () => {
 
-  it.only('All DropDowns', () => {
+  it('All DropDowns', () => {
     cy.viewport(1800, 1000)
     //Calculate the Time   
     cy.window().then(() => {

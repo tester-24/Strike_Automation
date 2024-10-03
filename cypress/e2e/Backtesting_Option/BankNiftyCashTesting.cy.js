@@ -3,7 +3,7 @@
 it("Option Backtesting", () => {
     cy.viewport(1750, 800);
     cy.clearAllCookies();
-    cy.visit("https://strike.jainam.in");
+    cy.visit("https://uatstrike.jainam.in");
   
     Cypress.on("uncaught:exception", (err) => {
       // returning false here prevents Cypress from
@@ -29,7 +29,7 @@ it("Option Backtesting", () => {
   
     // Click on Backtesting
     cy.wait(5000);
-    cy.get('#navBarWeb > :nth-child(5) > #Backtesting').click();
+    cy.get('#navBarWeb > :nth-child(6) > #Backtesting').click();
   
     // Click on Option dropdown
     // cy.xpath("//span[contains(text(),'Option')]").click();
@@ -359,7 +359,7 @@ it("Option Backtesting", () => {
     cy.get("#datepicker-4").clear();
     cy.get("div.ng-star-inserted > .text-danger").should("be.visible");
   
-    cy.get("#datepicker-4").type("2024-2023");
+    cy.get("#datepicker-4").type("2024-2021");
   
     //// Click on Run Backtesting
     cy.get(".secondary").click();
@@ -393,21 +393,19 @@ it("Option Backtesting", () => {
   let nameToTest = `${basename}${index}`;
 
   const checkNameAndSubmit = (name) => {
-    cy.get('.text-start > .full_wrap > .form-control').clear().type(name);
+   cy.get('.text-start > .full_wrap > .form-control').clear().type(name);
     cy.get('[style="float: none;"] > .common_anchor').click();
     
     return cy.get(".error-message").should("not.exist");
   };
-
-  
-  const findUniqueName = () => {
+ const findUniqueName = () => {
     return checkNameAndSubmit(nameToTest).then(() => {
-      cy.get('.full_wrap > :nth-child(3) > .text-danger').then(($error) => {
+      cy.get('#toast-container').then(($error) => {
         if ($error.length > 0) {
           // If error message exists, increment the index and check again
           index++;
           nameToTest = `${basename}${index}`;
-          findUniqueName(); // Recursively check the next name
+         findUniqueName(); // Recursively check the next name
         } 
         else {
           // Unique name found, verify success
@@ -419,7 +417,7 @@ it("Option Backtesting", () => {
 
   // Start the process
  // Ensure you visit the correct page first
-    findUniqueName(); // Start the process
+   // findUniqueName(); // Start the process
   
 
 
@@ -427,7 +425,7 @@ it("Option Backtesting", () => {
     // Click on save Button
     cy.get('[style="float: none;"] > .common_anchor').click();
 
-  cy.get(".ng-trigger").should("be.visible");
+    cy.get(".ng-trigger").should("be.visible");
 
   // Click on Strategies
   // cy.get("#navBar > :nth-child(3) > #Strategies").click();

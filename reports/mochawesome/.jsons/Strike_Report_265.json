@@ -1,0 +1,102 @@
+{
+  "stats": {
+    "suites": 0,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-10-02T05:40:37.725Z",
+    "end": "2024-10-02T05:41:11.821Z",
+    "duration": 34096,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "fc4588f7-0c14-4135-9ba3-f389f359a928",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Broker_Login_AliceBlue.cy.js",
+      "file": "cypress\\e2e\\Broker_Login_AliceBlue.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "Broker_Login",
+          "fullTitle": "Broker_Login",
+          "timedOut": null,
+          "duration": 32042,
+          "state": "failed",
+          "speed": null,
+          "pass": false,
+          "fail": true,
+          "pending": false,
+          "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\Broker_Login_AliceBlue.cy.js\\\\Broker_Login (failed).png\"\n    ]\n  ]\n}",
+          "code": "cy.viewport(1750, 800);\ncy.clearAllCookies();\ncy.visit('https://strike.jainam.in/#/');\ncy.wait(5000);\ncy.get('.nav-link').click();\n//Login Flow\ncy.wait(2000);\ncy.xpath(\"/html[1]/body[1]/app-root[1]/app-layout[1]/app-headerpanel[1]/app-login[1]/div[1]/kendo-dialog[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/kendo-textbox[1]/input[1]\").type('9825479404');\ncy.get('.btn_bg_bw').click();\ncy.wait(2000);\ncy.xpath(\"//kendo-textbox[@placeholder='Enter Password']\").type('Loop@345');\ncy.get('.btn_bg_bw').click();\ncy.log('Login successful');\ncy.wait(2000);\n//Click On Stratergy\ncy.wait(7000);\ncy.get('#navBarWeb > :nth-child(3) > #Strategies').click({\n  force: true\n});\n//Click on Broker Login\ncy.wait(5000);\ncy.xpath('/html/body/app-root/app-layout/app-strategies/div/div/div/div/div/div/div[2]/div/div/div[1]/div[2]/a').click();\n// cy.xpath('/html[1]/body[1]/app-root[1]/app-layout[1]/app-strategies[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a[1]').click({setTimeout:2000})\n//  cy.get(':nth-child(2) > .common_anchor').click({force:true})\n//Click on Alice Blue Setup\ncy.get(':nth-child(3) > .inner_wrap > .a > .common_anchor').should('be.visible');\ncy.get(':nth-child(3) > .inner_wrap > .a > .common_anchor').click();\n//Enter User Id \ncy.wait(1000);\ncy.get(':nth-child(1) > .form_field_wrap > :nth-child(2) > .form_field').type(1311739);\n// Enter Api Key\ncy.get(\":nth-child(2) > .form_field_wrap > :nth-child(2) > .form_field\").type(\"fcIoF0TybGnWzqR4auLjf6o9AtPvrltCsGoWZRSeekH3ZQomBj3bhMhLECUf8SoXL6kq38sjBvScYJm29uEegQkX38FVqrD6lm7P2yGYn1SWMMfoFztVrCR5LIzq7iov\");\ncy.get(\"#BtnSubmit\").click();\n//After click on submit button we can check for success message is visible or not \n// cy.wait(10000)\n//Click on Login\ncy.get('.ng-trigger').click();\ncy.wait(2000);\n// cy.xpath('/html/body/div/div/div/div').should('be.visible')\n// cy.get('.ng-trigger').should('be.visible')\n//Click on Login",
+          "err": {
+            "message": "CypressError: `cy.click()` can only be called on a single element. Your subject contained 2 elements. Pass `{ multiple: true }` if you want to serially click each element.\n\nhttps://on.cypress.io/click",
+            "estack": "CypressError: `cy.click()` can only be called on a single element. Your subject contained 2 elements. Pass `{ multiple: true }` if you want to serially click each element.\n\nhttps://on.cypress.io/click\n    at mouseAction (https://strike.jainam.in/__cypress/runner/cypress_runner.js:112454:68)\n    at Context.click (https://strike.jainam.in/__cypress/runner/cypress_runner.js:112621:14)\n    at wrapped (https://strike.jainam.in/__cypress/runner/cypress_runner.js:138450:19)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/Broker_Login_AliceBlue.cy.js:46:28)",
+            "diff": null
+          },
+          "uuid": "f4d8bf8c-4c99-4583-b3f7-1a6c17b242c0",
+          "parentUUID": "fc4588f7-0c14-4135-9ba3-f389f359a928",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [],
+      "failures": [
+        "f4d8bf8c-4c99-4583-b3f7-1a6c17b242c0"
+      ],
+      "pending": [],
+      "skipped": [],
+      "duration": 32042,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "Strike_Report",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports\\mochawesome\\.jsons",
+        "reporterEnabled": "cypress-mochawesome-reporter, mocha-junit-reporter",
+        "charts": true,
+        "reportPageTitle": "Strike_Automation",
+        "reportFilename": "Strike_Report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "video": true,
+        "videoCompression": true,
+        "videoOnFailOnly": true,
+        "quiet": true,
+        "debug": true,
+        "saveJson": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
