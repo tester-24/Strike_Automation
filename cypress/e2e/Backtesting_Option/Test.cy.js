@@ -391,35 +391,48 @@ it("Option Backtesting", () => {
   let basename = "Test";
   let index = 1;
   let nameToTest = `${basename}${index}`;
-
+  
   const checkNameAndSubmit = (name) => {
-   cy.get('.text-start > .full_wrap > .form-control').clear().type(name);
+    // Clear the input and type the new name
+    cy.get('.text-start > .full_wrap > .form-control').clear().type(name);
+    
+    // Click submit button
     cy.get('[style="float: none;"] > .common_anchor').click();
     
-    return cy.get(".error-message").should("not.exist");
-   //  return cy.get('.full_wrap > :nth-child(3) > .text-danger').should('not.exist')
-    
+    // Return a Cypress chain that checks for the error message
+    return cy.get("body").then(($body) => {
+      if ($body.find(".error-message").length > 0) {
+        return false; // Name already exists
+      } else {
+        return true; // Name is unique
+      }
+    });
   };
- const findUniqueName = () => {
-    return checkNameAndSubmit(nameToTest).then(() => {
-      cy.get('#toast-container').then(($error) => {
-        if ($error.length > 0) {
-          // If error message exists, increment the index and check again
+  
+  const findUniqueName = () => {
+    let foundUnique = false; // Flag to check when a unique name is found
+  
+    // Loop until a unique name is found
+    while (!foundUnique) {
+      checkNameAndSubmit(nameToTest).then((isUnique) => {
+        if (!isUnique) {
+          // Name exists, increment index and try again
           index++;
           nameToTest = `${basename}${index}`;
-         findUniqueName(); // Recursively check the next name
-        } 
-        else {
-          // Unique name found, verify success
+        } else {
+          // Unique name found
+          foundUnique = true;
           cy.get('.success-message').should('be.visible');
         }
       });
-    });
+    }
   };
-
-  // Start the process
- // Ensure you visit the correct page first
-   findUniqueName(); // Start the process
+  
+  // Ensure the test starts on the correct page
+ // cy.visit('YOUR_PAGE_URL');
+  
+  // Start the unique name finding process
+  findUniqueName();
   
 
 
